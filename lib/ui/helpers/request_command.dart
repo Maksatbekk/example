@@ -1,0 +1,4 @@
+enum RequestCommand {
+  UPDATE,
+  START
+}

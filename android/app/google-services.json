@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "85868020404",
+    "project_id": "kochapp-ec21e",
+    "storage_bucket": "kochapp-ec21e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85868020404:android:a28c0d94f346f100ad0de1",
+        "android_client_info": {
+          "package_name": "kg.onoy_kg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85868020404-dgg4dgah4t9sb1er0fqmn9lf8beasbha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kg.onoy_kg",
+            "certificate_hash": "3127fb5fa063cece6f85d5f7639bc5e4ef8b0fa8"
+          }
+        },
+        {
+          "client_id": "85868020404-do55mqp0mof48j7ci5k0ibl797qhr26m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kg.onoy_kg",
+            "certificate_hash": "8cd8d11782a371c0d7e8c90ad1464e7d9eed864a"
+          }
+        },
+        {
+          "client_id": "85868020404-f8163nv5a55mbg3bkdfss1eou5roigp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARYCMkwz8tXtiFLMmsxVxdGY7L4pLuSN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85868020404-f8163nv5a55mbg3bkdfss1eou5roigp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
