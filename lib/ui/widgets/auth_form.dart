@@ -213,10 +213,15 @@ class _AuthFormState extends State<AuthForm> {
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 3,
-                      child: RaisedButton(
-                        color: Colors.transparent,
-                        elevation: 0,
-                        highlightElevation: 0,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                        
+                        ),
+                        // color: Colors.transparent,
+                        // elevation: 0,
+                        // highlightElevation: 0,
                         onPressed: () {
                           Navigator.pushNamed(context, LoginPage.id);
                         },
@@ -232,13 +237,21 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          foregroundColor: Colors.white,
+                          backgroundColor: Helpers.blueColor,
                         ),
-                        padding: const EdgeInsets.all(10),
-                        textColor: Colors.white,
-                        color: Helpers.blueColor,
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(10.0),
+                        // ),
+                        // padding: const EdgeInsets.all(10),
+                        // textColor: Colors.white,
+                        // color: Helpers.blueColor,
                         onPressed: () {
                           _trySubmit();
                         },
@@ -281,11 +294,11 @@ class _AuthFormState extends State<AuthForm> {
         final jsonData = json.decode(data.body);
         final create = VerifyResult.fromJson(jsonData);
         print(create.message);
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Text(create.message),
               // duration: const Duration(seconds: 2),
-              backgroundColor: Theme.of(context).errorColor),
+              backgroundColor: Theme.of(context).colorScheme.error),
         );
       } else {
         /*  Scaffold.of(context).showSnackBar(SnackBar(
@@ -297,7 +310,7 @@ class _AuthFormState extends State<AuthForm> {
           SnackBar(
               content: const Text('Введен неверный логин или пароль'),
               duration: const Duration(seconds: 2),
-              backgroundColor: Theme.of(context).errorColor),
+              backgroundColor: Theme.of(context).colorScheme.error),
         );
       }
     });

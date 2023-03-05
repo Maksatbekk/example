@@ -212,12 +212,19 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
     } else {
       return Padding(
         padding: const EdgeInsets.all(8.0),
-        child: RaisedButton(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: BorderRadius.circular(4),
+              ),
+              foregroundColor: Helpers.blueColor,
+              backgroundColor: Helpers.blueLightColor,
             ),
-            textColor: Helpers.blueColor,
-            color: Helpers.blueLightColor,
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(4.0),
+            // ),
+            // textColor: Helpers.blueColor,
+            // color: Helpers.blueLightColor,
             onPressed: () {
               //sl<AuthManager>().inRequestToggle.add('1');
               logIn();

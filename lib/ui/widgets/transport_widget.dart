@@ -208,11 +208,15 @@ class _TransportWidgetState extends State<TransportWidget> {
               const SizedBox(height: 20),
               Container(
                 width: double.maxFinite,
-                decoration: BoxDecoration(color: Helpers.blueLightColor),
-                child: RaisedButton(
-                  elevation: 0,
+                decoration: const BoxDecoration(color: Helpers.blueLightColor),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Helpers.blueLightColor,
+                  ),
+                  // elevation: 0,
                   onPressed: callDatePickerTo,
-                  color: Helpers.blueLightColor,
+                  // color: Helpers.blueLightColor,
                   child: Container(
                     decoration: const BoxDecoration(color: Colors.transparent),
                     // padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -306,11 +310,15 @@ class _TransportWidgetState extends State<TransportWidget> {
               const SizedBox(height: 8.0),
               Container(
                 width: double.maxFinite,
-                decoration: BoxDecoration(color: Helpers.blueLightColor),
-                child: RaisedButton(
-                  elevation: 0,
+                decoration: const BoxDecoration(color: Helpers.blueLightColor),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Helpers.blueLightColor,
+                  ),
+                  // elevation: 0,
                   onPressed: callDatePickerTo,
-                  color: Helpers.blueLightColor,
+                  // color: Helpers.blueLightColor,
                   child: Container(
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
