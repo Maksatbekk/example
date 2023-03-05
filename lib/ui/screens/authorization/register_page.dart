@@ -25,10 +25,15 @@ class RegisterPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                RaisedButton(
-                    color: Colors.transparent,
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
                     elevation: 0,
-                    highlightElevation: 0,
+
+                  ),
+                    // color: Colors.transparent,
+                    // elevation: 0,
+                    // highlightElevation: 0,
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.pushNamed(
@@ -40,11 +45,16 @@ class RegisterPage extends StatelessWidget {
                     child: Text(
                       'Водитель',
                       style: Helpers.header1BlueTextStyle,
-                    )),
-                RaisedButton(
-                  color: Colors.transparent,
-                  elevation: 0,
-                  highlightElevation: 0,
+                    ),
+                  ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                  ),
+                  // color: Colors.transparent,
+                  // elevation: 0,
+                  // highlightElevation: 0,
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.pushNamed(

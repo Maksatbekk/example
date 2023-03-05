@@ -12,7 +12,7 @@ class PhoneOtp extends StatefulWidget {
 
 class _PhoneOtpState extends State<PhoneOtp> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _smsController = TextEditingController();
@@ -61,7 +61,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
                 alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: () async {
-                    verifyPhoneNumber();
+                    await verifyPhoneNumber();
                   },
                   child: const Text('Verify Number'),
                 ),
@@ -103,7 +103,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
     );
   }
 
-  void signInWithPhoneNumber() async {
+  Future<void> signInWithPhoneNumber() async {
     try {
       final credential = PhoneAuthProvider.credential(
         verificationId: _verificationId,
@@ -162,12 +162,12 @@ class _PhoneOtpState extends State<PhoneOtp> {
       verificationCompleted: (PhoneAuthCredential credential) async {
         final authresult = await _auth.signInWithCredential(credential);
 
-        var user = authresult.user;
+        final user = authresult.user;
         _getUserFromFirebase(user);
         completer.complete('signedUp');
       },
       verificationFailed: (FirebaseAuthException e) {
-        var error = e.code == 'invalid-phone-number'
+        final error = e.code == 'invalid-phone-number'
             ? 'Invalid number. Enter again.'
             : 'Can Not Login Now. Please try again.';
         completer.complete(error);
@@ -183,12 +183,12 @@ class _PhoneOtpState extends State<PhoneOtp> {
     return completer.future;
   }
 
-  void verifyPhoneNumber() async {
+  Future<void> verifyPhoneNumber() async {
     //Callback for when the user has already
     // previously signed in with this phone number on this device
     final PhoneVerificationCompleted verificationCompleted =
         (PhoneAuthCredential phoneAuthCredential) async {
-      var result = await _auth.signInWithCredential(phoneAuthCredential);
+      final result = await _auth.signInWithCredential(phoneAuthCredential);
 
       logger.d(result.user.refreshToken);
       logger.d(result.credential.token);
@@ -217,7 +217,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
         _verificationId = verificationId;
       });
     };
-    PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout = (
+    final PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout = (
       String verificationId,
     ) {
       showSnackbar('verification code: ' + verificationId);

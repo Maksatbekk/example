@@ -18,7 +18,8 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
+  // ignore: lines_longer_than_80_chars
+  final GlobalKey<ScaffoldMessengerState> _scaffoldkey = GlobalKey<ScaffoldMessengerState>();
   String _verificationCode;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _pinPutController = TextEditingController();

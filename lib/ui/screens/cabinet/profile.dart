@@ -48,7 +48,8 @@ class _ProfileState extends State<Profile> {
             const SizedBox(height: 50),
             StreamBuilder<UserModel>(
               stream: sl<LoginManager>().userResponse$,
-              builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
+              builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot)
+              {
                 if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 }
@@ -69,13 +70,21 @@ class _ProfileState extends State<Profile> {
             Center(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 2 - 30,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Helpers.blueColor,
                   ),
-                  padding: const EdgeInsets.all(10),
-                  textColor: Colors.white,
-                  color: Helpers.blueColor,
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: BorderRadius.circular(10.0),
+                  // ),
+                  // padding: const EdgeInsets.all(10),
+                  // textColor: Colors.white,
+                  // color: Helpers.blueColor,
                   onPressed: _trySubmit,
                   child: const Text(
                     'Разместить',

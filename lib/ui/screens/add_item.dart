@@ -267,10 +267,14 @@ class _AddItemState extends State<AddItem> {
                       decoration: const BoxDecoration(
                         color: Helpers.blueLightColor,
                       ),
-                      child: RaisedButton(
-                        elevation: 0,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Helpers.blueLightColor
+                        ),
+                        // elevation: 0,
                         onPressed: callDatePickerFrom,
-                        color: Helpers.blueLightColor,
+                        // color: Helpers.blueLightColor,
                         child: Container(
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
@@ -383,10 +387,14 @@ class _AddItemState extends State<AddItem> {
                       decoration: const BoxDecoration(
                         color: Helpers.blueLightColor,
                       ),
-                      child: RaisedButton(
-                        elevation: 0,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Helpers.blueLightColor,
+                        ),
+                        // elevation: 0,
                         onPressed: callDatePickerTo,
-                        color: Helpers.blueLightColor,
+                        // color: Helpers.blueLightColor,
                         child: Container(
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
@@ -683,13 +691,22 @@ class _AddItemState extends State<AddItem> {
                     Center(
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 2 - 30,
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Helpers.blueColor,
+
                           ),
-                          padding: const EdgeInsets.all(10),
-                          textColor: Colors.white,
-                          color: Helpers.blueColor,
+                          // shape: RoundedRectangleBorder(
+                          //   borderRadius: BorderRadius.circular(10.0),
+                          // ),
+                          // padding: const EdgeInsets.all(10),
+                          // textColor: Colors.white,
+                          // color: Helpers.blueColor,
                           onPressed: _trySubmit,
                           /* onPressed: () {
                             _formKey.currentState.save();
@@ -733,9 +750,9 @@ class _AddItemState extends State<AddItem> {
       (route) => false);*/
 
       } else {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Введен неверные данные'),
-          backgroundColor: Theme.of(context).errorColor,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
     });

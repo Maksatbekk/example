@@ -318,7 +318,6 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                     ToggleSwitch(
                         minWidth: 100,
                         fontSize: 16.0,
-                        initialLabelIndex: 0,
                         activeBgColor: const Color(0xffE5F2FF),
                         activeFgColor: Colors.black,
                         inactiveBgColor: Colors.white,
@@ -517,13 +516,21 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                     Center(
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 2 - 30,
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            foregroundColor: Colors.white,
+                            backgroundColor: blueColor,
                           ),
-                          padding: const EdgeInsets.all(10),
-                          textColor: Colors.white,
-                          color: blueColor,
+                          // shape: RoundedRectangleBorder(
+                          //   borderRadius: BorderRadius.circular(10.0),
+                          // ),
+                          // padding: const EdgeInsets.all(10),
+                          // textColor: Colors.white,
+                          // color: blueColor,
                           onPressed: _trySubmit,
                           child: const Text(
                             'Отправить',
@@ -590,22 +597,22 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   Widget _statusResult(BuildContext context, int data) {
     Future.delayed(Duration.zero, () async {
       if (data == 201) {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text(
             'Вы успешно зарегистировались! '
             'Ожидайте потверждение администратора.',
           ),
           duration: const Duration(seconds: 5),
-          backgroundColor: Theme.of(context).errorColor,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ));
 
         await Navigator.pushNamedAndRemoveUntil(
             context, MainScreen.id, ModalRoute.withName(MainScreen.id));
       } else {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Введен неверные данные'),
           duration: const Duration(seconds: 5),
-          backgroundColor: Theme.of(context).errorColor,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
     });
