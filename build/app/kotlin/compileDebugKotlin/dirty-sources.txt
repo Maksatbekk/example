@@ -1,0 +1,1 @@
+/home/maks/IdeaProjects/inoi_kg/android/app/src/main/kotlin/kg/onoy_kg/MainActivity.kt

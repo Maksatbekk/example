@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">85868020404-f8163nv5a55mbg3bkdfss1eou5roigp5.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">85868020404</string>
+    <string name="google_api_key" translatable="false">AIzaSyARYCMkwz8tXtiFLMmsxVxdGY7L4pLuSN0</string>
+    <string name="google_app_id" translatable="false">1:85868020404:android:a28c0d94f346f100ad0de1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyARYCMkwz8tXtiFLMmsxVxdGY7L4pLuSN0</string>
+    <string name="google_storage_bucket" translatable="false">kochapp-ec21e.appspot.com</string>
+    <string name="project_id" translatable="false">kochapp-ec21e</string>
+</resources>

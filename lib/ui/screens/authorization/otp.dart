@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/services/cargo_service.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
-import 'package:pinput/pin_put/pin_put.dart';
-
+// import 'package:pinput/pin_put/pin_put.dart';
+import 'package:pinput/pinput.dart';
 
 class OTPScreen extends StatefulWidget {
   OTPScreen(this.user);
@@ -19,9 +19,11 @@ class OTPScreen extends StatefulWidget {
 
 class _OTPScreenState extends State<OTPScreen> {
   // ignore: lines_longer_than_80_chars
-  final GlobalKey<ScaffoldMessengerState> _scaffoldkey = GlobalKey<ScaffoldMessengerState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldkey =
+      GlobalKey<ScaffoldMessengerState>();
   String _verificationCode;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final Pinput PinPut = const Pinput();
   final TextEditingController _pinPutController = TextEditingController();
   final FocusNode _pinPutFocusNode = FocusNode();
   final BoxDecoration pinPutDecoration = BoxDecoration(
@@ -37,10 +39,10 @@ class _OTPScreenState extends State<OTPScreen> {
     _verifyPhone();
     _auth.setLanguageCode('ru-Ru');
   }
+
   @override
   void dispose() {
     super.dispose();
-
   }
 
   @override
@@ -55,38 +57,38 @@ class _OTPScreenState extends State<OTPScreen> {
               const SizedBox(height: 40.0),
               Text('Введите код подтверждения', style: Helpers.titleTextStyle),
               const SizedBox(height: 30.0),
-              PinPut(
-                fieldsCount: 6,
-                textStyle: const TextStyle(
-                  fontSize: 25.0,
-                  color: Helpers.blueColor,
-                ),
-                eachFieldWidth: 40.0,
-                eachFieldHeight: 55.0,
-                focusNode: _pinPutFocusNode,
-                controller: _pinPutController,
-                submittedFieldDecoration: pinPutDecoration,
-                selectedFieldDecoration: pinPutDecoration,
-                followingFieldDecoration: pinPutDecoration,
-                pinAnimationType: PinAnimationType.fade,
-                onSubmit: (pin) async {
-                  try {
-                    await FirebaseAuth.instance
-                        .signInWithCredential(PhoneAuthProvider.credential(
-                            verificationId: _verificationCode, smsCode: pin))
-                        .then((value) async {
-                      final token = await value.user.getIdToken(true);
-                      Navigator.pop(context, token);
-                    });
-                  } catch (e) {
-                    FocusScope.of(context).unfocus();
-                    logger.d('Error $e');
-                    _scaffoldkey.currentState.showSnackBar(const SnackBar(
-                      content: Text('invalid OTP'),
-                    ));
-                  }
-                },
-              ),
+              // PinPut(
+              //   fieldsCount: 6,
+              //   textStyle: const TextStyle(
+              //     fontSize: 25.0,
+              //     color: Helpers.blueColor,
+              //   ),
+              //   eachFieldWidth: 40.0,
+              //   eachFieldHeight: 55.0,
+              //   focusNode: _pinPutFocusNode,
+              //   controller: _pinPutController,
+              //   submittedFieldDecoration: pinPutDecoration,
+              //   selectedFieldDecoration: pinPutDecoration,
+              //   followingFieldDecoration: pinPutDecoration,
+              //   pinAnimationType: PinAnimationType.fade,
+              //   onSubmit: (pin) async {
+              //     try {
+              //       await FirebaseAuth.instance
+              //           .signInWithCredential(PhoneAuthProvider.credential(
+              //               verificationId: _verificationCode, smsCode: pin))
+              //           .then((value) async {
+              //         final token = await value.user.getIdToken(true);
+              //         Navigator.pop(context, token);
+              //       });
+              //     } catch (e) {
+              //       FocusScope.of(context).unfocus();
+              //       logger.d('Error $e');
+              //       _scaffoldkey.currentState.showSnackBar(const SnackBar(
+              //         content: Text('invalid OTP'),
+              //       ));
+              //     }
+              //   },
+              // ),
             ],
           ),
         ),

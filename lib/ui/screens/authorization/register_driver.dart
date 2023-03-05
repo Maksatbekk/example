@@ -318,7 +318,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                     ToggleSwitch(
                         minWidth: 100,
                         fontSize: 16.0,
-                        activeBgColor: const Color(0xffE5F2FF),
+                        // activeBgColor: const Color(0xffE5F2FF),
                         activeFgColor: Colors.black,
                         inactiveBgColor: Colors.white,
                         inactiveFgColor: const Color(0xff909090),
