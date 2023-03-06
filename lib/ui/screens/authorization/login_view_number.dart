@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, lines_longer_than_80_chars, prefer_final_locals
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -118,7 +120,7 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
     );
   }
 
-  void _verifyPhoneNumber() async {
+  Future<void> _verifyPhoneNumber() async {
     final phoneNumber = ('\+' + _countryCodeController.text + _phoneNumberController.text);
     print(phoneNumber);
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -133,11 +135,11 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
     });
   }
 
-  void _verifySMS() async {
+  Future<void> _verifySMS() async {
     setState(() {
       isCodeVerified = true;
     });
-    _signInWithPhoneNumber();
+    await _signInWithPhoneNumber();
   }
 
   //* Setting some callback for firebase phone auth
@@ -145,7 +147,7 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
   //If on android it will work
   Future<void> _verificationCompleted(PhoneAuthCredential credential) async {
     print('Verfication completed is called ');
-    final UserCredential userCredential =
+    final userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
 
     print('user have singed with ${userCredential.user.uid}');
@@ -169,7 +171,7 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
       verificationCode = verficationId;
     });
     ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('OTP is sent to your mobile number ')));
+        .showSnackBar(const SnackBar(content: Text('OTP is sent to your mobile number ')));
   }
 
   Future<void> _codeAutoRetrievalTimeout(String verificationId) async {
@@ -182,10 +184,10 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
 
     final AuthCredential credential = PhoneAuthProvider.credential(
       verificationId: verificationCode,
-      smsCode: (code == null || code.trim().length == 0) ? '123456' : code,
+      smsCode: (code == null || code.trim().isEmpty) ? '123456' : code,
     );
 
-    final UserCredential userCredential =
+    final userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
 
     //logger.d(userCredential.user.refreshToken);
@@ -198,8 +200,8 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
         ));*/
      var token = await userCredential.user.getIdToken(true);
      var tokenResult = await userCredential.user.getIdTokenResult(true);
-    print('Token value --------- ${token}');
-    print('TokenResult value ----- ${tokenResult}');
+    print('Token value --------- $token');
+    print('TokenResult value ----- $tokenResult');
 
    /* final tokenResult = await FirebaseAuth.instance.currentUser;
     final idToken = await tokenResult.getIdToken();

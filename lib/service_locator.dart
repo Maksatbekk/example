@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:onoy_kg/managers/cargo_manager.dart';
-import 'package:onoy_kg/managers/token_manager.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
 import 'package:onoy_kg/managers/main_manager.dart';
+import 'package:onoy_kg/managers/token_manager.dart';
 import 'package:onoy_kg/managers/users_manager.dart';
 import 'package:onoy_kg/services/cargo_service.dart';
 import 'package:onoy_kg/services/login_service.dart';

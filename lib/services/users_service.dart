@@ -1,14 +1,13 @@
+// ignore_for_file: lines_longer_than_80_chars, unused_local_variable
+
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_native_image/flutter_native_image.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import 'package:onoy_kg/models/cargo.dart';
-
-import 'package:onoy_kg/models/users/register_driver_model.dart';
 import 'package:onoy_kg/models/users/cargo_types/cargo_types_model.dart';
-import 'package:onoy_kg/models/users/cargo_types/cargo_types_result.dart';
+import 'package:onoy_kg/models/users/register_driver_model.dart';
 import 'package:onoy_kg/models/users/vehicle_types_model.dart';
 import 'package:onoy_kg/models/users/vehicle_types_results.dart';
 import 'package:shared_preferences/shared_preferences.dart';

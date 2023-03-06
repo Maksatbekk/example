@@ -27,7 +27,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.firebase.crashlytics'
 
-android {
+android{
     signingConfigs {
         config {
             storeFile file('/home/arnal/Development/Onoi/Docs/onoy.jks')
@@ -37,6 +37,10 @@ android {
         }
     }
     compileSdkVersion 33
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

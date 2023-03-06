@@ -1,10 +1,4 @@
 class UserCargo {
-  String name;
-  String surname;
-  String phoneNumber;
-  String userType;
-
-  UserCargo({this.name, this.surname, this.phoneNumber, this.userType});
 
   UserCargo.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -12,6 +6,12 @@ class UserCargo {
     phoneNumber = json['phone_number'];
     userType = json['user_type'];
   }
+
+  UserCargo({this.name, this.surname, this.phoneNumber, this.userType});
+  String name;
+  String surname;
+  String phoneNumber;
+  String userType;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

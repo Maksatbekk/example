@@ -1,12 +1,6 @@
 import 'package:onoy_kg/models/users/vehicle_types_results.dart';
 
 class VehicleTypes {
-  int count;
-  int next;
-  int previous;
-  List<VehicleTypesResult> results;
-
-  VehicleTypes({this.count, this.next, this.previous, this.results});
 
   VehicleTypes.fromJson(Map<String, dynamic> json) {
     count = json['count'];
@@ -19,6 +13,12 @@ class VehicleTypes {
       });
     }
   }
+
+  VehicleTypes({this.count, this.next, this.previous, this.results});
+  int count;
+  int next;
+  int previous;
+  List<VehicleTypesResult> results;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

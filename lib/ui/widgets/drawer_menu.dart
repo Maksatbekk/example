@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
 import 'package:onoy_kg/managers/token_manager.dart';
@@ -57,9 +59,9 @@ class _DrawerMenuState extends State<DrawerMenu> {
     final _prefs = SharedPreferences.getInstance();
 
     final prefs = await SharedPreferences.getInstance();
-    var result = await prefs.setString('jwt', '');
+    final result = await prefs.setString('jwt', '');
     print('Logout $result');
-    final toke = await prefs.getString('jwt');
+    final toke = prefs.getString('jwt');
     print('LogoutToken $toke');
 
     print('Logout');

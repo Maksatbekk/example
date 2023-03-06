@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
-import 'package:onoy_kg/managers/token_manager.dart';
 import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/screens/add_item.dart';
@@ -35,7 +34,7 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
     final prefs = await _prefs;
 
     //  final token = prefs.getString('jwt');
-    final token = await prefs.getString('jwt');
+    final token = prefs.getString('jwt');
 
     print('Token value $token');
     if (token == null || token == '') {

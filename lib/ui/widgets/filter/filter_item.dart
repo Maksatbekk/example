@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/cargo_manager.dart';
 import 'package:onoy_kg/managers/main_manager.dart';
@@ -414,7 +416,7 @@ class _FilterItemsState extends State<FilterItems> {
   }
 
   Widget _dropDownFromRegions(BuildContext context, Regions data) {
-    List<Cities> citiesFrom = [];
+    var citiesFrom = <Cities>[];
     return Container(
         width: double.maxFinite,
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -473,8 +475,8 @@ class _FilterItemsState extends State<FilterItems> {
   }
 
   Widget _dropDownToRegions(BuildContext context, Regions data) {
-    List<Cities> citiesFrom = [];
-    List<Cities> citiesTo = [];
+    var citiesFrom = <Cities>[];
+    final citiesTo = <Cities>[];
     return Container(
         width: double.maxFinite,
         padding: const EdgeInsets.symmetric(horizontal: 8),

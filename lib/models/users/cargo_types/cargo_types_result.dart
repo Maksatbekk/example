@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, unnecessary_getters_setters
+
 import 'package:equatable/equatable.dart';
 
 class CargoTypesResults extends Equatable {

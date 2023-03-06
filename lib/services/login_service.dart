@@ -1,3 +1,5 @@
+// ignore_for_file: missing_return
+
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
@@ -54,7 +56,7 @@ class LoginServiceImplementation implements LoginService {
       final tokenValue = 'Bearer ${create.access}';
       await prefs.setString('jwt', tokenValue);
 
-      final tokenResponse = await prefs.getString('jwt');
+      final tokenResponse = prefs.getString('jwt');
       logger.d('Login Page Token Response $tokenResponse');
 
       return response;
@@ -99,7 +101,7 @@ class LoginServiceImplementation implements LoginService {
   @override
   Future<UserModel> getUser() async {
     final prefs = await _prefs;
-    final token = await prefs.getString('jwt');
+    final token = prefs.getString('jwt');
     //logger.d(token);
 
     final _uri = Uri.http(_authority, _pathGetUser);

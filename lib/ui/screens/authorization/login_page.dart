@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
-import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:onoy_kg/ui/screens/authorization/register_page.dart';
+import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:onoy_kg/ui/widgets/footer.dart';
 import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
 

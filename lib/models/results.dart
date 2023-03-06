@@ -1,35 +1,34 @@
 import 'package:onoy_kg/models/user.dart';
 
 class Results {
-  int id;
-  String fromRegion;
-  String fromCity;
-  String toRegion;
-  String toCity;
-  String datePublished;
-  String fromPlaceComment;
-  String toPlaceComment;
-  String cargoComment;
-  String vehicleComment;
-  String fromShipmentDate;
-  String toShipmentDate;
-  String name;
-  dynamic weight;
-  String height;
-  String length;
- // dynamic volume;
-  String width;
-  String phoneNumber;
-  String whatsappNumber;
-  String telegramNumber;
-  dynamic price;
-  String senderName;
-  String senderSurname;
-  UserModel user;
-  String weightFrom;
-  String weightTo;
-  String priceFrom;
-  String priceTo;
+
+  Results.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    fromRegion = json['from_region'];
+    fromCity = json['from_city'];
+    toRegion = json['to_region'];
+    toCity = json['to_city'];
+    datePublished = json['date_published'];
+    fromPlaceComment = json['from_place_comment'];
+    toPlaceComment = json['to_place_comment'];
+    cargoComment = json['cargo_comment'];
+    vehicleComment = json['vehicle_comment'];
+    fromShipmentDate = json['from_shipment_date'];
+    toShipmentDate = json['to_shipment_date'];
+    name = json['name'];
+    weight = json['weight'];
+    height = json['height'];
+    length = json['length'];
+   // volume = json['volume'];
+    width = json['width'];
+    phoneNumber = json['phone_number'];
+    whatsappNumber = json['whatsapp_number'];
+    telegramNumber = json['telegram_number'];
+    price = json['price'];
+    senderName = json['sender_name'];
+    senderSurname = json['sender_surname'];
+    user = json['user'] != null ?  UserModel.fromJson(json['user']) : null;
+  }
 
   Results(
       {this.id,
@@ -62,34 +61,35 @@ class Results {
         this.priceTo,
 
       });
-
-  Results.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    fromRegion = json['from_region'];
-    fromCity = json['from_city'];
-    toRegion = json['to_region'];
-    toCity = json['to_city'];
-    datePublished = json['date_published'];
-    fromPlaceComment = json['from_place_comment'];
-    toPlaceComment = json['to_place_comment'];
-    cargoComment = json['cargo_comment'];
-    vehicleComment = json['vehicle_comment'];
-    fromShipmentDate = json['from_shipment_date'];
-    toShipmentDate = json['to_shipment_date'];
-    name = json['name'];
-    weight = json['weight'];
-    height = json['height'];
-    length = json['length'];
-   // volume = json['volume'];
-    width = json['width'];
-    phoneNumber = json['phone_number'];
-    whatsappNumber = json['whatsapp_number'];
-    telegramNumber = json['telegram_number'];
-    price = json['price'];
-    senderName = json['sender_name'];
-    senderSurname = json['sender_surname'];
-    user = json['user'] != null ?  UserModel.fromJson(json['user']) : null;
-  }
+  int id;
+  String fromRegion;
+  String fromCity;
+  String toRegion;
+  String toCity;
+  String datePublished;
+  String fromPlaceComment;
+  String toPlaceComment;
+  String cargoComment;
+  String vehicleComment;
+  String fromShipmentDate;
+  String toShipmentDate;
+  String name;
+  dynamic weight;
+  String height;
+  String length;
+ // dynamic volume;
+  String width;
+  String phoneNumber;
+  String whatsappNumber;
+  String telegramNumber;
+  dynamic price;
+  String senderName;
+  String senderSurname;
+  UserModel user;
+  String weightFrom;
+  String weightTo;
+  String priceFrom;
+  String priceTo;
 
   Map<String, dynamic> toJson() {
     final data =  <String, dynamic>{};

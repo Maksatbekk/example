@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, unused_import
 
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';

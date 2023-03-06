@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/cargo_manager.dart';
 import 'package:onoy_kg/models/cargo.dart';

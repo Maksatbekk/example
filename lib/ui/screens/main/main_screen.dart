@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_field, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:onoy_kg/managers/cargo_manager.dart';
@@ -12,7 +14,6 @@ import 'package:onoy_kg/ui/widgets/onoi_app_bar.dart';
 import 'package:onoy_kg/ui/widgets/transport_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
 
 import 'main_tabs.dart';
 

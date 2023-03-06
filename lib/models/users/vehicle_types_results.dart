@@ -1,13 +1,13 @@
 class VehicleTypesResult {
-  int id;
-  String name;
-
-  VehicleTypesResult({this.id, this.name});
 
   VehicleTypesResult.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
+
+  VehicleTypesResult({this.id, this.name});
+  int id;
+  String name;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

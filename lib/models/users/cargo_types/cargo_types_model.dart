@@ -1,6 +1,20 @@
+// ignore_for_file: unnecessary_getters_setters
+
 import 'cargo_types_result.dart';
 
 class CargoTypes {
+
+  CargoTypes.fromJson(Map<String, dynamic> json) {
+    _count = json['count'];
+    _next = json['next'];
+    _previous = json['previous'];
+    if (json['results'] != null) {
+      _results = <CargoTypesResults>[];
+      json['results'].forEach((v) {
+        _results.add(CargoTypesResults.fromJson(v));
+      });
+    }
+  }
   CargoTypes({
     int count,
     int next,
@@ -33,18 +47,6 @@ class CargoTypes {
   List<CargoTypesResults> get results => _results;
 
   set results(List<CargoTypesResults> results) => _results = results;
-
-  CargoTypes.fromJson(Map<String, dynamic> json) {
-    _count = json['count'];
-    _next = json['next'];
-    _previous = json['previous'];
-    if (json['results'] != null) {
-      _results = <CargoTypesResults>[];
-      json['results'].forEach((v) {
-        _results.add(CargoTypesResults.fromJson(v));
-      });
-    }
-  }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

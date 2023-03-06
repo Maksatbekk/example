@@ -1,6 +1,9 @@
+// ignore_for_file: unused_field
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:onoy_kg/managers/users_manager.dart';
 import 'package:onoy_kg/models/users/cargo_types/cargo_types_model.dart';
 import 'package:onoy_kg/models/users/cargo_types/cargo_types_result.dart';
@@ -10,7 +13,6 @@ import 'package:onoy_kg/ui/helpers/request_command.dart';
 import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:onoy_kg/ui/widgets/footer.dart';
 import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../../service_locator.dart';
@@ -41,7 +43,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   CargoTypesResults cargoTypesResults;
 
   Future getTechPassport() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       if (pickedFile != null) {
@@ -55,7 +57,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   }
 
   Future getLicense() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       if (pickedFile != null) {
@@ -70,7 +72,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   }
 
   Future getPassport() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       if (pickedFile != null) {
@@ -219,7 +221,8 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         items: _locations.map((location) {
                           return DropdownMenuItem(
                             value: location,
-                            child: Text(location, style: Helpers.header1TextStyle),
+                            child: Text(location, 
+                                          style: Helpers.header1TextStyle,),
                           );
                         }).toList(),
                       ),

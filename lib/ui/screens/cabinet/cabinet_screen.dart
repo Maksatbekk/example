@@ -33,7 +33,9 @@ class CabinetScreen extends StatelessWidget {
           StreamBuilder<UserModel>(
             stream: sl<LoginManager>().userResponse$,
             builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
-              if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+              if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              }
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
                   return const Text('');

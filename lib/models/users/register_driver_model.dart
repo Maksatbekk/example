@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters, lines_longer_than_80_chars
+
 import 'dart:io';
 
 class RegisterDriver {

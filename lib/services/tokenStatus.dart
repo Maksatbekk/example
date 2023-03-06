@@ -13,7 +13,7 @@ class TokenStatusServiceImplementation implements TokenStatusService {
   Future<bool> getTokenStatus() async {
 
     final prefs = await SharedPreferences.getInstance();
-    final token = await prefs.getString('jwt');
+    final token = prefs.getString('jwt');
 
     //return token;
     print('getTokenService $token');

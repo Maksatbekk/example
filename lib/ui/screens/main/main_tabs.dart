@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, unused_import, lines_longer_than_80_chars, unused_field
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class MainTabs extends StatefulWidget {
   _MainTabsState createState() => _MainTabsState();
 }
 
-class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<MainTabs> {
+class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<MainTabs>{
   @override
   bool get wantKeepAlive => true;
   TabController _controller;
@@ -37,6 +39,7 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return DefaultTabController(
       length: 2,
       child: Column(

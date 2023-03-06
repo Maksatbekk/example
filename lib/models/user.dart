@@ -1,15 +1,4 @@
 class UserModel {
-  String name;
-  String surname;
-  String password;
-  String userType;
-  String phoneNumber;
-  String uidToken;
-  int id;
-  bool checked;
-  bool registered;
-
-  UserModel({this.name, this.surname, this.password, this.userType, this.phoneNumber, this.uidToken, this.id, this.checked, this.registered});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -22,6 +11,18 @@ class UserModel {
     checked = json['checked'];
     registered = json['registered'];
   }
+
+  // ignore: lines_longer_than_80_chars
+  UserModel({this.name, this.surname, this.password, this.userType, this.phoneNumber, this.uidToken, this.id, this.checked, this.registered});
+  String name;
+  String surname;
+  String password;
+  String userType;
+  String phoneNumber;
+  String uidToken;
+  int id;
+  bool checked;
+  bool registered;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

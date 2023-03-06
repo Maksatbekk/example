@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, duplicate_ignore
+
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 import 'package:onoy_kg/models/cargo.dart';
@@ -42,7 +44,7 @@ class UsersManager {
   BehaviorSubject<int>();
   // ignore: lines_longer_than_80_chars
   final PublishSubject<RequestCommand> _requestSubject = PublishSubject<RequestCommand>();
-  // ignore: lines_longer_than_80_chars, lines_longer_than_80_chars
+  // ignore: lines_longer_than_80_chars
   final PublishSubject<RequestCommand> _cargoTypesSubject = PublishSubject<RequestCommand>();
   final PublishSubject<RegisterDriver> _registerDriverSubject =
   PublishSubject<RegisterDriver>();
