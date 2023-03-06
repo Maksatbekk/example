@@ -36,7 +36,7 @@ android {
             keyPassword 'onoy2021'
         }
     }
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -49,7 +49,7 @@ android {
     defaultConfig {
         applicationId 'kg.onoy_kg'
         minSdkVersion 21
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
