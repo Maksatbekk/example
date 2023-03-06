@@ -9,7 +9,6 @@ import 'package:onoy_kg/models/regions_model.dart';
 import 'package:onoy_kg/models/results.dart';
 import 'package:onoy_kg/services/cargo_service.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
-
 import '../../../service_locator.dart';
 
 class FilterTransport extends StatefulWidget {

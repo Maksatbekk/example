@@ -8,11 +8,10 @@ import 'package:onoy_kg/models/region_results.dart';
 import 'package:onoy_kg/models/regions_model.dart';
 import 'package:onoy_kg/models/results.dart';
 import 'package:onoy_kg/models/user.dart';
-import 'package:onoy_kg/ui/helpers/helpers.dart';
-import 'package:onoy_kg/ui/widgets/footer.dart';
+import 'package:onoy_kg/service_locator.dart';
 import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
-
-import '../../service_locator.dart';
+import '../../../../../ui/helpers/helpers.dart';
+import '../widgets/footer.dart';
 import 'main/main_screen.dart';
 
 class AddItem extends StatefulWidget {

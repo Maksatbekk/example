@@ -11,6 +11,7 @@ import 'package:onoy_kg/ui/screens/cabinet/profile.dart';
 import '../../../service_locator.dart';
 import 'my_list.dart';
 
+
 class CabinetScreen extends StatelessWidget {
   static const String id = '/cabinet_screen';
 

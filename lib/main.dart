@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:onoy_kg/service_locator.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/screens/add_item.dart';
@@ -76,7 +77,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, backgroundColor: Helpers.blueColor,
+              foregroundColor: Colors.white, primary: Helpers.blueColor,
           ),
         ),
       ),
