@@ -4,7 +4,7 @@
             "outputFile": "/home/maks/IdeaProjects/inoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "/home/maks/.gradle/caches/transforms-2/files-2.1/040b2d95927ae98132c1eb496da7b884/core-1.6.0/res/values-v21/values-v21.xml",
+                    "source": "/home/maks/.gradle/caches/transforms-3/447314dd1dd2b1663f3c8cb040d91880/transformed/core-1.8.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

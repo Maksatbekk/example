@@ -4,7 +4,17 @@
             "outputFile": "/home/maks/IdeaProjects/inoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "/home/maks/.gradle/caches/transforms-2/files-2.1/040b2d95927ae98132c1eb496da7b884/core-1.6.0/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/home/maks/.gradle/caches/transforms-3/1906122025072509aa9c96f3b67abc24/transformed/browser-1.4.0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,250,359",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "148,245,354,453"
+                    }
+                },
+                {
+                    "source": "/home/maks/.gradle/caches/transforms-3/447314dd1dd2b1663f3c8cb040d91880/transformed/core-1.8.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,16 +28,6 @@
                         "startOffsets": "458",
                         "endColumns": "100",
                         "endOffsets": "554"
-                    }
-                },
-                {
-                    "source": "/home/maks/.gradle/caches/transforms-2/files-2.1/7ef33dcbbebe881cb7f7414d1b915ecd/browser-1.4.0/res/values-en-rIN/values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,153,250,359",
-                        "endColumns": "97,96,108,98",
-                        "endOffsets": "148,245,354,453"
                     }
                 }
             ]
