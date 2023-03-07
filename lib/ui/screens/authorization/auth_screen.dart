@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/ui/widgets/auth_form.dart';
 
-import '../../widgets/auth_form.dart';
 import '../../widgets/titleAppBar.dart';
 
 class AuthScreen extends StatefulWidget {

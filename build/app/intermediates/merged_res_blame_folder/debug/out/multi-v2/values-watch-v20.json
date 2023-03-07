@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/maks/IdeaProjects/inoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/home/maks/IdeaProjects/onoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "/home/maks/.gradle/caches/transforms-3/5318ebb3c30d35bc80a70aa5b262e34f/transformed/jetified-play-services-auth-20.4.0/res/values-watch-v20/values.xml",

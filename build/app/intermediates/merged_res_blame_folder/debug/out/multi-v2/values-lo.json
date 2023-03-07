@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/maks/IdeaProjects/inoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml",
+            "outputFile": "/home/maks/IdeaProjects/onoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml",
             "map": [
                 {
                     "source": "/home/maks/.gradle/caches/transforms-3/447314dd1dd2b1663f3c8cb040d91880/transformed/core-1.8.0/res/values-lo/values-lo.xml",

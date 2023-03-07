@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/maks/IdeaProjects/inoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "outputFile": "/home/maks/IdeaProjects/onoi_kg/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "/home/maks/.gradle/caches/transforms-3/01935cf077376b5c65148e9fe2e71552/transformed/jetified-play-services-base-18.0.1/res/values-vi/values.xml",

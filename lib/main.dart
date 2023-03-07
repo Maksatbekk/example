@@ -17,6 +17,7 @@ import 'managers/login_manager.dart';
 import 'managers/main_manager.dart';
 import 'managers/token_manager.dart';
 import 'ui/screens/authorization/login_page.dart';
+import 'ui/screens/authorization/register_user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -77,7 +78,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, primary: Helpers.blueColor,
+              foregroundColor: Colors.white, backgroundColor: Helpers.blueColor,
           ),
         ),
       ),
@@ -86,7 +87,7 @@ class _MyAppState extends State<MyApp> {
         HomeScreen.id: (context) => HomeScreen(),
         LoginPage.id: (context) => LoginPage(),
         RegisterPage.id: (context) => RegisterPage(),
-        // RegisterUser.id: (context) => RegisterUser(),
+        RegisterUser.id: (context) => RegisterUser(),
         RegisterDriverScreen.id: (context) => RegisterDriverScreen(),
         AddItem.id: (context) => AddItem(),
         AddTransport.id: (context) => AddTransport(),
