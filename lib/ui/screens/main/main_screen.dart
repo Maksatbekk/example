@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, unused_field, unused_local_variable
+// ignore_for_file: unused_import, unused_field, unused_local_variable, lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -92,8 +92,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 
-  /*void displayModalBottomSheet(BuildContext context) {
-    sl<MainManager>().inRequestToggle.add(0);
+  void displayModalBottomSheet(BuildContext context) {
+    sl<MainManager>().inRequestToggle.add(0 as Results);
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
@@ -129,17 +129,17 @@ class _MainScreenState extends State<MainScreen> {
                       ToggleSwitch(
                         minWidth: 100,
                         fontSize: 16.0,
-                        activeBgColor: const Color(0xffE5F2FF),
+                        // activeBgColor: Colors.white,
                         activeFgColor: Colors.black,
                         inactiveBgColor: Colors.white,
                         inactiveFgColor: const Color(0xff909090),
                         labels: const ['Груз', 'Транспорт'],
                         onToggle: (index) {
-                          sl<MainManager>().inRequestToggle.add(index);
+                          sl<MainManager>().inRequestToggle.add(index as Results);
                         },
                       ),
                       InkWell(
-                        // onTap: () => displayModalBottomSheet(context),
+                        onTap: () => displayModalBottomSheet(context),
                         child: Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
@@ -165,7 +165,7 @@ class _MainScreenState extends State<MainScreen> {
                       stream: sl<MainManager>().currentSelection$,
                       builder: (
                         BuildContext context,
-                        AsyncSnapshot<int> snapshot,
+                        AsyncSnapshot<Results> snapshot,
                       ) {
                         if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
@@ -176,7 +176,7 @@ class _MainScreenState extends State<MainScreen> {
                           case ConnectionState.waiting:
                             return const CircularProgressIndicator();
                           case ConnectionState.active:
-                            return _contentBottom(snapshot.data);
+                            return _contentBottom(snapshot.data as int);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -187,8 +187,8 @@ class _MainScreenState extends State<MainScreen> {
             ),
           );
         });
-  }*/
-/*
+  }
+
   Widget _contentBottom(int data) {
     switch (data) {
       case 0:
@@ -197,5 +197,5 @@ class _MainScreenState extends State<MainScreen> {
         return TransportWidget();
     }
     return null;
-  }*/
+  }
 }

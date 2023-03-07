@@ -9,6 +9,8 @@ import 'package:onoy_kg/ui/screens/authorization/login_page.dart';
 import 'package:onoy_kg/ui/screens/authorization/register_driver.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../managers/auth_button.dart';
+import '../../managers/token_manager.dart';
 import '../../service_locator.dart';
 
 
@@ -60,8 +62,8 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
 
     print('Logout');
     await _getToken();
-    //await Navigator.pushNamed(context, LoginPage.id);
-    //sl<TokenManager>().inRequestLogin.add('Update');
+    await Navigator.pushNamed(context, LoginPage.id);
+    sl<TokenManager>().inRequestLogin.add('Update');
   }
 
   void logIn() {
@@ -72,8 +74,8 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
   final Widget svg = SvgPicture.asset(
     'assets/images/dolon_icon.svg',
       alignment: Alignment.topLeft, width: 100,
-      //fit: BoxFit.fitWidth,
-   /* width: 100,
+      fit: BoxFit.fitWidth,
+    /*width: 100,
     fit: BoxFit.fitWidth, alignment: Alignment.topLeft,*/
   );
 
@@ -85,27 +87,37 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
       backgroundColor: Colors.white,
       title: title(),
       actions: [
-        /*  if (!_isLogin)*/
-        /* Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                textColor: Helpers.blueColor,
-                color: Helpers.blueLightColor,
-                onPressed: () {
-                  //sl<AuthManager>().inRequestToggle.add('1');
-                  logIn();
+          if (!_isLogin)
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.0)
+                    ),
+                    foregroundColor: Helpers.blueColor,
+                    backgroundColor: Helpers.blueLightColor
+                  ),
+                    /*shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    textColor: Helpers.blueColor,
+                    color: Helpers.blueLightColor,*/
+                    onPressed: () {
+                      sl<AuthManager>().inRequestToggle.add('1');
+                      logIn();
 
-                  print('Raised Buttun Pressed $_isLogin');
-                },
-                child: const Text('Войти')),
-          ),*/
-        // isLoginButton(),
-        /* ElevatedButton(onPressed: (){
+                      print('Raised Buttun Pressed $_isLogin');
+                    },
+                    child: const Text('Войти')),
+                    
+              ),
+              // isLoginButton(),
+              
+         ElevatedButton(onPressed: (){
           logOut();
-        }, child: Text('Logout')),*/
+        }, child: const Text('Logout')),
+
         StreamBuilder<UserModel>(
           stream: sl<LoginManager>().userResponse$,
           builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
@@ -170,9 +182,9 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
                 color: Colors.white,
               ),
               onPressed: () async {
-                /*   await Navigator.pushNamedAndRemoveUntil(
+                   await Navigator.pushNamedAndRemoveUntil(
                     context, AddItem.id, ModalRoute.withName(AddItem.id),
-                     arguments: {'userData': data},);*/
+                     arguments: {'userData': data},);
                 await Navigator.pushNamed(
                   context,
                   AddItem.id,

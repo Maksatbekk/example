@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: const Center(
-        child: Text(  ''),
+        child: Text(''),
       ),
     );
   }

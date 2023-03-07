@@ -17,6 +17,7 @@ import 'managers/login_manager.dart';
 import 'managers/main_manager.dart';
 import 'managers/token_manager.dart';
 import 'ui/screens/authorization/login_page.dart';
+// import 'ui/screens/authorization/otp.dart';
 import 'ui/screens/authorization/register_user.dart';
 
 void main() async {
@@ -82,7 +83,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      initialRoute: MainScreen.id,
+      initialRoute: RegisterPage.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginPage.id: (context) => LoginPage(),
