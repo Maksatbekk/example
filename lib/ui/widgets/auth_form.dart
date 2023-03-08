@@ -174,7 +174,7 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   obscureText: true,
                   obscuringCharacter: '*',
-                  // textInputAction: TextInputAction.next,
+                  textInputAction: TextInputAction.next,
                   validator: Helpers.validatePassword,
                   onSaved: (value) {
                     _user.password = value;
@@ -298,7 +298,7 @@ class _AuthFormState extends State<AuthForm> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Text(create.message),
-              // duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 2),
               backgroundColor: Theme.of(context).colorScheme.error),
         );
       } else {
