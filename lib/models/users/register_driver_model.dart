@@ -23,7 +23,6 @@ class RegisterDriver {
     _carryingCapacity = json['carrying_capacity'];
     _vehicleType = json['vehicle_type'];
     _cargoType = json['cargo_type'];
-    _cargoType = json['cargo_type'];
     _vehiclePassport = json['vehicle_passport'];
     _driverLicense = json['driver_license'];
     _idPassport = json['id_passport'];

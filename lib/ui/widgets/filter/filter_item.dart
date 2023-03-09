@@ -113,14 +113,14 @@ class _FilterItemsState extends State<FilterItems> {
       });
     }
 
-    if (isValid && weightFrom() == weightTo() && priceFrom() == priceTo()
-        /*   _cargo.fromRegion != null &&
+    if (isValid && weightFrom() == weightTo() && priceFrom() == priceTo() 
+        /* _cargo.fromRegion != null &&
         _cargo.toRegion != null &&
         _cargo.toCity != null &&
-        _cargo.fromCity != null*/
+        _cargo.fromCity != null */
         ) {
       _formKey.currentState.save();
-      //setState(() => loading = true);
+      // setState(() => loading = true);
 
       print(_cargoResult.fromRegion);
       print(_cargoResult.fromCity);

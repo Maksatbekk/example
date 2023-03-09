@@ -1,26 +1,26 @@
-
 import '../user.dart';
 
 class PDAResults {
-   PDAResults(
-      {this.id,
-        this.name,
-        this.user,
-        this.fromShipmentDate,
-        this.toShipmentDate,
-        this.fromRegion,
-        this.fromCity,
-        this.toRegion,
-        this.toCity,
-        this.datePublished,
-        this.vehicleComment,
-        this.price,
-        this.weight});
+  PDAResults({
+    this.id,
+    this.name,
+    this.user,
+    this.fromShipmentDate,
+    this.toShipmentDate,
+    this.fromRegion,
+    this.fromCity,
+    this.toRegion,
+    this.toCity,
+    this.datePublished,
+    this.vehicleComment,
+    this.price,
+    this.weight,
+  });
 
   PDAResults.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    user = json['user'] != null ?  UserModel.fromJson(json['user']) : null;
+    user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
     fromShipmentDate = json['from_shipment_date'];
     toShipmentDate = json['to_shipment_date'];
     fromRegion = json['from_region'];
@@ -33,19 +33,19 @@ class PDAResults {
     weight = json['weight'];
   }
 
-   int id;
-   String name;
-   UserModel user;
-   String fromShipmentDate;
-   String toShipmentDate;
-   String fromRegion;
-   String fromCity;
-   String toRegion;
-   String toCity;
-   String datePublished;
-   String vehicleComment;
-   int price;
-   int weight;
+  int id;
+  String name;
+  UserModel user;
+  String fromShipmentDate;
+  String toShipmentDate;
+  String fromRegion;
+  String fromCity;
+  String toRegion;
+  String toCity;
+  String datePublished;
+  String vehicleComment;
+  int price;
+  int weight;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

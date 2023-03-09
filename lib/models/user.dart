@@ -1,5 +1,4 @@
 class UserModel {
-
   UserModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     surname = json['surname'];
@@ -12,8 +11,17 @@ class UserModel {
     registered = json['registered'];
   }
 
-  // ignore: lines_longer_than_80_chars
-  UserModel({this.name, this.surname, this.password, this.userType, this.phoneNumber, this.uidToken, this.id, this.checked, this.registered});
+  UserModel({
+    this.name,
+    this.surname,
+    this.password,
+    this.userType,
+    this.phoneNumber,
+    this.uidToken,
+    this.id,
+    this.checked,
+    this.registered,
+  });
   String name;
   String surname;
   String password;
@@ -38,4 +46,3 @@ class UserModel {
     return data;
   }
 }
-
