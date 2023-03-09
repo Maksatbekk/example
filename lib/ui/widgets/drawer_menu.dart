@@ -7,6 +7,7 @@ import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/screens/authorization/login_page.dart';
 import 'package:onoy_kg/ui/screens/cabinet/cabinet_screen.dart';
+import 'package:onoy_kg/ui/screens/cabinet/my_list.dart';
 import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:recase/recase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,7 +44,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               color: Colors.black,
             ),
             title: const Text('Сохранения'),
-            onTap: () {},
+            onTap: () => MyList(),
           ),
           cabinetMenu(),
           ListTile(

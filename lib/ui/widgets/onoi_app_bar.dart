@@ -145,7 +145,7 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
     return Row(
       children: const [
         Text(
-          'DOLON',
+          'ONOI',
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.w900,
