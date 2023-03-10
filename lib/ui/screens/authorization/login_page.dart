@@ -5,10 +5,10 @@ import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/screens/authorization/register_page.dart';
 import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:onoy_kg/ui/widgets/footer.dart';
-import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
 
 import '../../../models/user.dart';
 import '../../../service_locator.dart';
+import '../../widgets/logo_appbar.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = '/login_page';

@@ -7,6 +7,7 @@ import 'package:onoy_kg/ui/screens/add_item.dart';
 import 'package:onoy_kg/ui/screens/add_transport.dart';
 import 'package:onoy_kg/ui/screens/authorization/login_page.dart';
 import 'package:onoy_kg/ui/screens/authorization/register_driver.dart';
+import 'package:onoy_kg/ui/widgets/logo_appbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../managers/auth_button.dart';
@@ -83,9 +84,9 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
   Widget build(BuildContext context) {
     print(_isLogin);
     return AppBar(
-      leadingWidth: 24.0,
+      leadingWidth: 28.0,
       backgroundColor: Colors.white,
-      title: title(),
+      title: LogoAppbar(),
       actions: [
           if (!_isLogin)
             Padding(
@@ -114,10 +115,10 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
               ),
               // isLoginButton(),
               
-         ElevatedButton(onPressed: (){
+         /* ElevatedButton(onPressed: (){
           logOut();
         }, child: const Text('Logout')),
-
+ */
         StreamBuilder<UserModel>(
           stream: sl<LoginManager>().userResponse$,
           builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
@@ -137,32 +138,6 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
             return null; // unreachable
           },
         ),
-      ],
-    );
-  }
-
-  Widget title() {
-    return Row(
-      children: const [
-        Text(
-          'ONOI',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.w900,
-            color: Color(0xff3B4256),
-          ),
-        ),
-        SizedBox(
-          width: 12.0,
-        ),
-        Text(
-          'Кыргызстан',
-          style: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.w600,
-            color: Color(0xff007AFF),
-          ),
-        )
       ],
     );
   }

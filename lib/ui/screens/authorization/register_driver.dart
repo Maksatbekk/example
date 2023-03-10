@@ -12,10 +12,10 @@ import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/helpers/request_command.dart';
 import 'package:onoy_kg/ui/screens/main/main_screen.dart';
 import 'package:onoy_kg/ui/widgets/footer.dart';
-import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../../service_locator.dart';
+import '../../widgets/logo_appbar.dart';
 
 const blueColor = Color(0xff007AFF);
 const blueLightColor = Color(0xffE5F2FF);

@@ -56,7 +56,7 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
           ),
           const SizedBox(height: 20.0),
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsets.only(left: 16),
             child: Stack(
               children: [
                 Center(
@@ -85,30 +85,32 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
                 ),
                 Positioned(
                   right: 20,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.filter_list_alt),
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Helpers.blueLightColor,
+                        foregroundColor: Helpers.blueColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      icon: const Icon(Icons.filter_list_alt,),
                       onPressed: () {
                         filterMenu(context);
-                      },
+                      }, 
+                      label: const Text('Фильтр'),
                     ),
                   ),
-                )
               ],
             ),
           ),
           Expanded(
             child: TabBarView(
-              //  controller: _controller,
+              // controller: _controller,
               children: [
                 CargoList(sl<CargoManager>().cargoList$),
                 CargoList(sl<CargoManager>().transportationList$),
-                //TransportList()
-                //CargoList(sl<CargoManager>().transportationList$),
+                // TransportList(),
+                // CargoList(sl<CargoManager>().transportationList$),
               ],
             ),
           )
@@ -139,7 +141,6 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
                           child: Image.asset('assets/images/cancel.png')),
                       const SizedBox(width: 40.0),
                       Text('Фильтр', style: Helpers.header1TextStyle),
-
                     ],
                   ),
                 ),
@@ -178,7 +179,7 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
                       FilterTransport(),
                       //  CargoList(sl<CargoManager>().transportationList$),
                       //TransportList()
-                      //CargoList(sl<CargoManager>().transportationList$),
+                      // CargoList(sl<CargoManager>().transportationList$),
                     ],
                   ),
                 )

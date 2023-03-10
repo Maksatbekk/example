@@ -22,37 +22,39 @@ class DrawerMenu extends StatefulWidget {
 class _DrawerMenuState extends State<DrawerMenu> {
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          UserAccountsDrawerHeader(
-            decoration: const BoxDecoration(
-              color: Color(0xFF0062ac),
+    return Container(
+      child: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color(0xFF0062ac),
+              ),
+              accountName: _name(),
+              accountEmail: _number(),
+              otherAccountsPictures: [_icon()],
+              currentAccountPicture: const CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person, size: 50),
+              ),
             ),
-            accountName: _name(),
-            accountEmail: _number(),
-            otherAccountsPictures: [_icon()],
-            currentAccountPicture: const CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person, size: 50),
+            ListTile(
+              leading: const Icon(
+                Icons.bookmark_border_sharp,
+                color: Colors.black,
+              ),
+              title: const Text('Сохранения'),
+              onTap: () => MyList(),
             ),
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.bookmark_border_sharp,
-              color: Colors.black,
+            cabinetMenu(),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app, color: Colors.black),
+              title: const Text('Выход'),
+              onTap: () => logOut(context),
             ),
-            title: const Text('Сохранения'),
-            onTap: () => MyList(),
-          ),
-          cabinetMenu(),
-          ListTile(
-            leading: const Icon(Icons.exit_to_app, color: Colors.black),
-            title: const Text('Выход'),
-            onTap: () => logOut(context),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

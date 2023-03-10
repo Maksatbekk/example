@@ -9,9 +9,9 @@ import 'package:onoy_kg/models/results.dart';
 import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/widgets/footer.dart';
-import 'package:onoy_kg/ui/widgets/titleAppBar.dart';
 
 import '../../service_locator.dart';
+import '../widgets/logo_appbar.dart';
 import 'main/main_screen.dart';
 
 class AddTransport extends StatefulWidget {

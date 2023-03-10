@@ -72,7 +72,7 @@ class Helpers {
   );
 
   static const Color blueColor = Color(0xff007AFF);
-  static const Color blueLightColor = Color(0xffE5F2FF);
+  static const Color blueLightColor = Color.fromARGB(255, 216, 239, 252);
   static const Color greenColor = Color(0xff0FA958);
   static const Color greyColor = Color(0xffE0E0E0);
   static const Color hintColor = Color(0xff909090);
