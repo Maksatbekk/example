@@ -76,8 +76,6 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
     'assets/images/dolon_icon.svg',
       alignment: Alignment.topLeft, width: 100,
       fit: BoxFit.fitWidth,
-    /*width: 100,
-    fit: BoxFit.fitWidth, alignment: Alignment.topLeft,*/
   );
 
   @override
@@ -99,11 +97,6 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
                     foregroundColor: Helpers.blueColor,
                     backgroundColor: Helpers.blueLightColor
                   ),
-                    /*shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    textColor: Helpers.blueColor,
-                    color: Helpers.blueLightColor,*/
                     onPressed: () {
                       sl<AuthManager>().inRequestToggle.add('1');
                       logIn();

@@ -24,7 +24,8 @@ class MainTabs extends StatefulWidget {
   _MainTabsState createState() => _MainTabsState();
 }
 
-class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<MainTabs>{
+class _MainTabsState extends State<MainTabs>
+    with AutomaticKeepAliveClientMixin<MainTabs> {
   @override
   bool get wantKeepAlive => true;
   TabController _controller;
@@ -56,50 +57,63 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
           ),
           const SizedBox(height: 20.0),
           Padding(
-            padding: const EdgeInsets.only(left: 16),
+            padding: const EdgeInsets.only(left: 23),
             child: Stack(
               children: [
-                Center(
-                  child: ButtonsTabBar(
-                    buttonMargin: const EdgeInsets.symmetric(
-                      vertical: 4,
-                    ),
-                    borderColor: Helpers.blueColor,
-                    borderWidth: 1,
-                    unselectedBorderColor: Colors.transparent,
-                    backgroundColor: const Color(0xffE5F2FF),
-                    unselectedBackgroundColor: Colors.white,
-                    unselectedLabelStyle: const TextStyle(
-                      color: Color(0xff909090),
-                    ),
-                    labelStyle: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    controller: _controller,
-                    tabs: const [
-                      Tab(text: 'Груз'),
-                      Tab(text: 'Транспорт'),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  right: 20,
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Helpers.blueLightColor,
-                        foregroundColor: Helpers.blueColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ButtonsTabBar(
+                      buttonMargin: const EdgeInsets.symmetric(
+                        vertical: 4,
                       ),
-                      icon: const Icon(Icons.filter_list_alt,),
-                      onPressed: () {
-                        filterMenu(context);
-                      }, 
-                      label: const Text('Фильтр'),
+                      borderColor: Helpers.blueColor,
+                      borderWidth: 1,
+                      unselectedBorderColor: Colors.transparent,
+                      backgroundColor: const Color(0xffE5F2FF),
+                      unselectedBackgroundColor: Colors.white,
+                      unselectedLabelStyle: const TextStyle(
+                        color: Color(0xff909090),
+                      ),
+                      labelStyle: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      controller: _controller,
+                      tabs: const [
+                        Tab(text: 'Груз'),
+                        Tab(text: 'Транспорт'),
+                      ],
                     ),
-                  ),
+                    IconButton(
+                      iconSize: 50,
+                      icon: Image.asset(
+                        'assets/images/clock.png',
+                      ),
+                      onPressed: () {},
+                    ),
+                    Positioned(
+                      right: 20,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Helpers.blueLightColor,
+                          foregroundColor: Helpers.blueColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        icon: const Icon(
+                          Icons.filter_list_alt,
+                        ),
+                        onPressed: () {
+                          filterMenu(context);
+                        },
+                        label: const Text('Фильтр'),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -135,7 +149,7 @@ class _MainTabsState extends State<MainTabs> with AutomaticKeepAliveClientMixin<
                   child: Row(
                     children: [
                       InkWell(
-                          onTap:(){
+                          onTap: () {
                             Navigator.pop(context);
                           },
                           child: Image.asset('assets/images/cancel.png')),
