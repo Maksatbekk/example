@@ -36,7 +36,7 @@ class RegisterUser extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(6.0),
                   color: Helpers.blueColor,
                 ),
                 child: IconButton(
@@ -168,7 +168,7 @@ class RegisterUser extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 2 - 30,
+                          width: MediaQuery.of(context).size.width / 2 - 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,
@@ -195,7 +195,7 @@ class RegisterUser extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)
+                                borderRadius: BorderRadius.circular(6.0)
                               ),
                               padding: const EdgeInsets.all(10),
                               foregroundColor: Colors.white,
@@ -220,7 +220,7 @@ class RegisterUser extends StatelessWidget {
                             child: const Text(
                               'Зарегистрироваться',
                               style: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 14.0,
                               ),
                             ),
                           ),

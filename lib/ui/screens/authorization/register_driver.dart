@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:onoy_kg/managers/users_manager.dart';
 import 'package:onoy_kg/models/users/cargo_types/cargo_types_model.dart';
@@ -287,7 +288,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       },
                     ),
 
-                    /*  Container(
+                    Container(
                       width: double.maxFinite,
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
@@ -300,13 +301,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         isExpanded: true,
                         hint: Text('Тип транспорта', style: Helpers.hintStyle),
                         // Not necessary for Option 1
-                        value: _selectedLocation,
+                        value: _driver.vehicleType,
                         onChanged: (newValue) {
                           setState(() {
-                            _selectedLocation = newValue;
+                            _driver.vehicleType = newValue;
                           });
                         },
-                        items: _locations.map((location) {
+                        /* items: _driver.vehicleType.map((location) {
                           return DropdownMenuItem(
                             value: location,
                             child: Text(
@@ -314,9 +315,9 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                               style: Helpers.header1TextStyle,
                             ),
                           );
-                        }).toList(),
+                        }).toList(), */
                       ),
-                    ),*/
+                    ),
                     const SizedBox(height: 8.0),
                     ToggleSwitch(
                         minWidth: 100,
@@ -331,7 +332,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                           _driver.vehicleType = value.toString();
                         }),
                     const SizedBox(height: 8.0),
-                    /*        TextFormField(
+                    TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Грузоподъемность, т',
                         hintStyle: Helpers.hintStyle,
@@ -346,10 +347,10 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.capacity = value;
+                        _driver.carryingCapacity = value;
                       },
                     ),
-                    const SizedBox(height: 8.0),*/
+                    const SizedBox(height: 8.0),
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Объем багажа, м³',
@@ -427,7 +428,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                             onPressed: getPassport)
                       ],
                     ),
-                    /* Text('Документы', style: Helpers.header1TextStyle),
+                    // Text('Документы', style: Helpers.header1TextStyle),
                     const SizedBox(height: 30.0),
                     Text('Контакты', style: Helpers.header1TextStyle),
                     const SizedBox(height: 20.0),
@@ -484,7 +485,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         'Добавить номер',
                         style: Helpers.smallBlueTextStyle,
                       ),
-                    ),*/
+                    ),
                     const SizedBox(height: 20.0),
                     Visibility(
                       visible: loading,
@@ -528,12 +529,6 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                             foregroundColor: Colors.white,
                             backgroundColor: blueColor,
                           ),
-                          // shape: RoundedRectangleBorder(
-                          //   borderRadius: BorderRadius.circular(10.0),
-                          // ),
-                          // padding: const EdgeInsets.all(10),
-                          // textColor: Colors.white,
-                          // color: blueColor,
                           onPressed: _trySubmit,
                           child: const Text(
                             'Отправить',

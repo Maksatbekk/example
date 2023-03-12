@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerRight,
                             child: Text('Забыл пароль',
                                 style: TextStyle(
-                                  fontSize: 12.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w500,
                                   color: Helpers.blueColor,
                                 ))),

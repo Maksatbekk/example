@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Helpers {
   static TextStyle hintStyle = const TextStyle(
-    fontSize: 16.0,
+    fontSize: 12.0,
     color: Color(0xff909090),
   );
 

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:onoy_kg/models/user.dart';
 import 'package:onoy_kg/ui/helpers/helpers.dart';
 import 'package:onoy_kg/ui/screens/authorization/auth_screen.dart';
+import 'package:onoy_kg/ui/screens/authorization/register_driver.dart';
+import 'package:onoy_kg/ui/screens/authorization/register_user.dart';
 
 class RegisterPage extends StatelessWidget {
 
@@ -40,7 +42,7 @@ class RegisterPage extends StatelessWidget {
                       Navigator.pop(context);
                       Navigator.pushNamed(
                         context,
-                        AuthScreen.id,
+                        RegisterDriverScreen.id,
                         arguments: {'user_type': 'driver'},
                       );
                     },
@@ -61,7 +63,7 @@ class RegisterPage extends StatelessWidget {
                     Navigator.pop(context);
                     Navigator.pushNamed(
                       context,
-                      AuthScreen.id,
+                      RegisterUser.id,
                       arguments: {'user_type': 'client'},
                     );
                   },
