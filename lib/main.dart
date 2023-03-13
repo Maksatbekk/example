@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      initialRoute: RegisterUser.id,
+      initialRoute: MainScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginPage.id: (context) => LoginPage(),

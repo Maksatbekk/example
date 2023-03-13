@@ -9,6 +9,7 @@ import 'package:onoy_kg/ui/screens/add_item.dart';
 import 'package:onoy_kg/ui/screens/cabinet/profile.dart';
 
 import '../../../service_locator.dart';
+import '../add_transport.dart';
 import 'my_list.dart';
 
 
@@ -54,7 +55,7 @@ class CabinetScreen extends StatelessWidget {
       ),
       body: Scaffold(
         body: DefaultTabController(
-          length: 2,
+          length: 4,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -83,14 +84,14 @@ class CabinetScreen extends StatelessWidget {
                       icon: Icon(Icons.account_box_rounded),
                       text: 'Профиль',
                     ),
-                    /*  Tab(
+                    Tab(
                       icon: Icon(Icons.bookmark_border_sharp),
                       text: 'Сохранения',
                     ),
                     Tab(
                       icon: Icon(Icons.add_alert_rounded),
                       text: 'Уведомления',
-                    ),*/
+                    ),
                   ],
                 ),
                 Expanded(
@@ -98,12 +99,12 @@ class CabinetScreen extends StatelessWidget {
                     children: <Widget>[
                       Container(child: MyList()),
                       Profile(),
-                      /*Center(
+                      const Center(
                         child: Icon(Icons.directions_car),
                       ),
-                      Center(
+                      const Center(
                         child: Icon(Icons.directions_transit),
-                      ),*/
+                      ),
                     ],
                   ),
                 ),
@@ -143,25 +144,25 @@ class CabinetScreen extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 4),
         child: Container(
-            /*decoration: BoxDecoration(
+            decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
             color: Helpers.blueColor,
           ),
           child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.add,
                 color: Colors.white,
               ),
               onPressed: () async {
-
                 // await FirebaseAuth.instance.signOut();
                 await Navigator.pushNamedAndRemoveUntil(
                     context, AddTransport.id,
                      ModalRoute.withName(AddTransport.id),
                     arguments: {'userData': data},);
 
-                // await Navigator.pushNamed(context, AddTransport.id, arguments: {'userData': data});
-              }),*/
+                // await Navigator.pushNamed(context, 
+                //AddTransport.id, arguments: {'userData': data});
+              }),
             ),
       );
     } else {

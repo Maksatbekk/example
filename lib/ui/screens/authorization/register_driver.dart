@@ -404,7 +404,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         ElevatedButton.icon(
                             label: const Text('Выберите фото'),
                             icon: const Icon(Icons.drive_folder_upload),
-                            onPressed: getLicense)
+                            onPressed: getLicense),
                       ],
                     ),
                     const SizedBox(height: 20.0),

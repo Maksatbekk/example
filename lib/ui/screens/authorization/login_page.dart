@@ -9,6 +9,7 @@ import 'package:onoy_kg/ui/widgets/footer.dart';
 import '../../../models/user.dart';
 import '../../../service_locator.dart';
 import '../../widgets/logo_appbar.dart';
+import '../main/home.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = '/login_page';
@@ -142,8 +143,6 @@ class _LoginPageState extends State<LoginPage> {
               backgroundColor: Colors.transparent,
               elevation: 0,
             ),
-            // color: Colors.transparent,
-            // elevation: 0,
             // highlightElevation: 0,
             onPressed: () {
               Navigator.pop(context);
@@ -170,12 +169,6 @@ class _LoginPageState extends State<LoginPage> {
               foregroundColor: Colors.white,
               backgroundColor: Helpers.blueColor,
             ),
-            // shape: RoundedRectangleBorder(
-            //   borderRadius: BorderRadius.circular(10.0),
-            // ),
-            // padding: const EdgeInsets.all(10),
-            // textColor: Colors.white,
-            // color: Helpers.blueColor,
             onPressed: _trySubmit,
             child: const Text(
               'Войти',
@@ -193,18 +186,17 @@ class _LoginPageState extends State<LoginPage> {
     print('Response status ${data.statusCode}');
     Future.delayed(Duration.zero, () async {
       if (data.statusCode == 200) {
-        /*  await Navigator.pushNamed(context, MainScreen.id);
-            (route) => false);
+        await Navigator.pushNamed(context, MainScreen.id);
+        (route) => false;
         Navigator.pop(context);
-        */
 
         await Navigator.pushNamedAndRemoveUntil(
             context, MainScreen.id, ModalRoute.withName(MainScreen.id));
-        /* await Navigator.pushNamedAndRemoveUntil()
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
-      (route) => false);*/
-
+        await Navigator.pushNamedAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()) as String,
+          (route) => false,
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Введен неверный логин или пароль'),

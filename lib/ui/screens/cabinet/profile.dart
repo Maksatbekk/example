@@ -79,12 +79,6 @@ class _ProfileState extends State<Profile> {
                     foregroundColor: Colors.white,
                     backgroundColor: Helpers.blueColor,
                   ),
-                  // shape: RoundedRectangleBorder(
-                  //   borderRadius: BorderRadius.circular(10.0),
-                  // ),
-                  // padding: const EdgeInsets.all(10),
-                  // textColor: Colors.white,
-                  // color: Helpers.blueColor,
                   onPressed: _trySubmit,
                   child: const Text(
                     'Разместить',

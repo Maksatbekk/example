@@ -19,7 +19,7 @@ class Results {
     weight = json['weight'];
     height = json['height'];
     length = json['length'];
-   // volume = json['volume'];
+    volume = json['volume'];
     width = json['width'];
     phoneNumber = json['phone_number'];
     whatsappNumber = json['whatsapp_number'];
@@ -47,7 +47,7 @@ class Results {
         this.weight,
         this.height,
         this.length,
-        //this.volume,
+        this.volume,
         this.phoneNumber,
         this.whatsappNumber,
         this.telegramNumber,
@@ -77,7 +77,7 @@ class Results {
   dynamic weight;
   String height;
   String length;
- // dynamic volume;
+  dynamic volume;
   String width;
   String phoneNumber;
   String whatsappNumber;
@@ -108,7 +108,7 @@ class Results {
     data['weight'] = weight;
     data['height'] = height;
     data['length'] = length;
-   // data['volume'] = volume;
+    data['volume'] = volume;
     data['width'] = width;
     data['phone_number'] = phoneNumber;
     data['whatsapp_number'] = whatsappNumber;

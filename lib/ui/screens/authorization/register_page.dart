@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     elevation: 0,
-
+                    
                   ),
                     // color: Colors.transparent,
                     // elevation: 0,
