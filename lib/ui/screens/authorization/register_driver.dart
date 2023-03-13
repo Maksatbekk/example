@@ -307,7 +307,8 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                             _driver.vehicleType = newValue;
                           });
                         },
-                        /* items: _driver.vehicleType.map((location) {
+                        items: const [null],
+                         /* items: _driver.vehicleType.map((location) {
                           return DropdownMenuItem(
                             value: location,
                             child: Text(
@@ -315,7 +316,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                               style: Helpers.header1TextStyle,
                             ),
                           );
-                        }).toList(), */
+                        }).toList(), */ 
                       ),
                     ),
                     const SizedBox(height: 8.0),

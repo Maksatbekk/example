@@ -13,7 +13,6 @@ class AuthScreen extends StatefulWidget {
 
   final UserModel user;
 
-
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
