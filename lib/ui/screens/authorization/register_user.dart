@@ -174,8 +174,6 @@ class RegisterUser extends StatelessWidget {
                               backgroundColor: Colors.transparent,
                               elevation: 0,
                             ),
-                            // color: Colors.transparent,
-                            // elevation: 0,
                             // highlightElevation: 0,
                             onPressed: () {
                               Navigator.pushNamed(context, LoginPage.id);
@@ -201,12 +199,6 @@ class RegisterUser extends StatelessWidget {
                               foregroundColor: Colors.white,
                               backgroundColor: Helpers.blueColor,
                             ),
-                            // shape: RoundedRectangleBorder(
-                            //   borderRadius: BorderRadius.circular(10.0),
-                            // ),
-                            // padding: const EdgeInsets.all(10),
-                            // textColor: Colors.white,
-                            // color: Helpers.blueColor,
                             onPressed: () {
                               if (_formKey.currentState.validate()) {
                                 print('Process data');

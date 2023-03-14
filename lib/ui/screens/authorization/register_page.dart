@@ -35,8 +35,6 @@ class RegisterPage extends StatelessWidget {
                     elevation: 0,
                     
                   ),
-                    // color: Colors.transparent,
-                    // elevation: 0,
                     // highlightElevation: 0,
                     onPressed: () {
                       Navigator.pop(context);
@@ -56,8 +54,6 @@ class RegisterPage extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                   ),
-                  // color: Colors.transparent,
-                  // elevation: 0,
                   // highlightElevation: 0,
                   onPressed: () {
                     Navigator.pop(context);

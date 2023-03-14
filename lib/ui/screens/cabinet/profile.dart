@@ -46,6 +46,7 @@ class _ProfileState extends State<Profile> {
               style: Helpers.titleTextStyle,
             ),
             const SizedBox(height: 50),
+            _info(context, _user),
             StreamBuilder<UserModel>(
               stream: sl<LoginManager>().userResponse$,
               builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot)
