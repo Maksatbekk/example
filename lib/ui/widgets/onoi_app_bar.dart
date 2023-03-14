@@ -101,7 +101,7 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
                       sl<AuthManager>().inRequestToggle.add('1');
                       logIn();
 
-                      print('Raised Buttun Pressed $_isLogin');
+                      print('Raised Button Pressed $_isLogin');
                     },
                     child: const Text('Войти')),
                     
