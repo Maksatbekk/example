@@ -47,17 +47,20 @@ class _MainTabsState extends State<MainTabs>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(height: 20.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          const SizedBox(height: 25.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 27.0),
             child: Text(
               'Грузоперевозки по всей стране',
-              style: Helpers.titleTextStyle,
+              // style: Helpers.titleTextStyle,
+              style: TextStyle(
+                fontSize: 22,
+              ),
             ),
           ),
           const SizedBox(height: 20.0),
           Padding(
-            padding: const EdgeInsets.only(left: 23),
+            padding: const EdgeInsets.only(left: 13),
             child: Stack(
               children: [
                 Row(
@@ -78,7 +81,7 @@ class _MainTabsState extends State<MainTabs>
                       labelStyle: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                       controller: _controller,
                       tabs: const [
