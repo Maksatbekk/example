@@ -79,7 +79,8 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, backgroundColor: Helpers.blueColor,
+              foregroundColor: Colors.white, 
+              backgroundColor: Helpers.blueColor,
           ),
         ),
       ),
