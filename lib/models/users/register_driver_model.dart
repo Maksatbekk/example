@@ -4,6 +4,8 @@ import 'dart:io';
 
 class RegisterDriver {
   RegisterDriver({
+    String name,
+    String surName,
     String carryingCapacity,
     String vehicleType,
     String cargoType,
@@ -28,6 +30,8 @@ class RegisterDriver {
     _idPassport = json['id_passport'];
   }
 
+  String name;
+  String surName;
   String _carryingCapacity;
   String _vehicleType;
   String _cargoType;
@@ -49,7 +53,8 @@ class RegisterDriver {
 
   set driverLicense(File driverLicense) => _driverLicense = driverLicense;
 
-  set carryingCapacity(String carryingCapacity) => _carryingCapacity = carryingCapacity;
+  set carryingCapacity(String carryingCapacity) =>
+      _carryingCapacity = carryingCapacity;
 
   String get vehicleType => _vehicleType;
 

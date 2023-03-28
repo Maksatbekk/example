@@ -82,7 +82,7 @@ class _ProfileState extends State<Profile> {
                   ),
                   onPressed: _trySubmit,
                   child: const Text(
-                    'Разместить',
+                    'Сохранить изменения',
                     style: TextStyle(
                       fontSize: 18.0,
                     ),

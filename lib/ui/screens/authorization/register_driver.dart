@@ -160,7 +160,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       style: Helpers.header2TextStyle,
                     ),
                     const SizedBox(height: 30.0),
-                    /* TextFormField(
+                    TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Имя',
                         hintStyle: Helpers.hintStyle,
@@ -194,13 +194,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.surname = value;
+                        _driver.surName = value;
                       },
                     ),
                     const SizedBox(height: 20.0),
                     Text('Местоположение', style: Helpers.header2TextStyle),
                     const SizedBox(height: 4.0),
-                    Container(
+                    /* Container(
                       width: double.maxFinite,
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
@@ -256,8 +256,8 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                           );
                         }).toList(),
                       ),
-                    ),
-                    const SizedBox(height: 20.0),*/
+                    ), */
+                    const SizedBox(height: 20.0),
                     Text('Транспорт', style: Helpers.header1TextStyle),
                     const SizedBox(height: 4.0),
                     StreamBuilder<CargoTypes>(
