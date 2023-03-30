@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      initialRoute: RegisterDriverScreen.id,
+      initialRoute: MainScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginPage.id: (context) => LoginPage(),
