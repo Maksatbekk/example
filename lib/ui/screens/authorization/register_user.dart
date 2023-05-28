@@ -98,7 +98,7 @@ class RegisterUser extends StatelessWidget {
                         keyboardType: TextInputType.text,
                         textInputAction: TextInputAction.next,
                         validator: (value) {
-                          if (value.isEmpty) {
+                          if (value!.isEmpty) {
                             return 'Please enter name';
                           }
                           return null;
@@ -128,7 +128,7 @@ class RegisterUser extends StatelessWidget {
                               keyboardType: TextInputType.phone,
                               textInputAction: TextInputAction.done,
                               validator: (value) {
-                                if (value.isEmpty) {
+                                if (value!.isEmpty) {
                                   return 'Please enter number';
                                 }
                                 return null;
@@ -200,9 +200,9 @@ class RegisterUser extends StatelessWidget {
                               backgroundColor: Helpers.blueColor,
                             ),
                             onPressed: () {
-                              if (_formKey.currentState.validate()) {
+                              if (_formKey.currentState!.validate()) {
                                 print('Process data');
-                                _formKey.currentState.save();
+                                _formKey.currentState!.save();
                                 print('Name: ${_user.name}');
                                 print('Number: ${_user.phoneNumber}');
                               } else {

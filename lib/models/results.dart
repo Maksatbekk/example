@@ -27,11 +27,11 @@ class Results {
     price = json['price'];
     senderName = json['sender_name'];
     senderSurname = json['sender_surname'];
-    user = json['user'] != null ?  UserModel.fromJson(json['user']) : null;
+    user = (json['user'] != null ?  UserModel.fromJson(json['user']) : null)!;
   }
 
   Results(
-      {this.id,
+      { this.id,
         this.fromRegion,
         this.fromCity,
         this.toRegion,
@@ -60,36 +60,39 @@ class Results {
         this.priceFrom,
         this.priceTo,
 
-      });
-  int id;
-  String fromRegion;
-  String fromCity;
-  String toRegion;
-  String toCity;
-  String datePublished;
-  String fromPlaceComment;
-  String toPlaceComment;
-  String cargoComment;
-  String vehicleComment;
-  String fromShipmentDate;
-  String toShipmentDate;
-  String name;
-  dynamic weight;
-  String height;
-  String length;
+      }) {
+          
+          throw UnimplementedError();
+        }
+  late int id;
+  late String fromRegion;
+  late String fromCity;
+  late String toRegion;
+  late String toCity;
+  late String datePublished;
+  late String fromPlaceComment;
+  late String toPlaceComment;
+  late String cargoComment;
+  late String vehicleComment;
+  late String fromShipmentDate;
+  late String toShipmentDate;
+  late String name;
+  late dynamic weight;
+  late String height;
+  late String length;
   dynamic volume;
-  String width;
-  String phoneNumber;
-  String whatsappNumber;
-  String telegramNumber;
+  late String width;
+  late String phoneNumber;
+  late String whatsappNumber;
+  late String telegramNumber;
   dynamic price;
-  String senderName;
-  String senderSurname;
-  UserModel user;
-  String weightFrom;
-  String weightTo;
-  String priceFrom;
-  String priceTo;
+  late String senderName;
+  late String senderSurname;
+  late UserModel user;
+  late String weightFrom;
+  late String weightTo;
+  late String priceFrom;
+  late String priceTo;
 
   Map<String, dynamic> toJson() {
     final data =  <String, dynamic>{};
@@ -116,6 +119,7 @@ class Results {
     data['price'] = price;
     data['sender_name'] = senderName;
     data['sender_surname'] = senderSurname;
+    // ignore: unnecessary_null_comparison
     if (user != null) {
       data['user'] = user.toJson();
     }

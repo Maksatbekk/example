@@ -1,12 +1,12 @@
 class VerifyResult {
   VerifyResult(
-      {this.idToken,
-      this.refreshToken,
-      this.expiresIn,
-      this.localId,
-      this.isNewUser,
-      this.phoneNumber,
-      this.message});
+      {required this.idToken,
+      required this.refreshToken,
+      required this.expiresIn,
+      required this.localId,
+      required this.isNewUser,
+      required this.phoneNumber,
+      required this.message});
 
   VerifyResult.fromJson(Map<String, dynamic> json) {
     idToken = json['idToken'];
@@ -18,13 +18,13 @@ class VerifyResult {
     message = json['message'];
   }
 
-  String idToken;
-  String refreshToken;
-  String expiresIn;
-  String localId;
-  bool isNewUser;
-  String phoneNumber;
-  String message;
+  late String idToken;
+  late String refreshToken;
+  late String expiresIn;
+  late String localId;
+  late bool isNewUser;
+  late String phoneNumber;
+  late String message;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

@@ -1,7 +1,9 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:onoy_kg/models/users/pda_results.dart';
 
 class PublishedAdds {
-  PublishedAdds({this.count, this.next, this.previous, this.results});
+  PublishedAdds({required this.count, required this.next, required this.previous, required this.results});
 
   PublishedAdds.fromJson(Map<String, dynamic> json) {
     count = json['count'];
@@ -14,16 +16,17 @@ class PublishedAdds {
       });
     }
   }
-  int count;
-  int next;
-  int previous;
-  List<PDAResults> results;
+  late int count;
+  late int next;
+  late int previous;
+  late List<PDAResults> results;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['count'] = count;
     data['next'] = next;
     data['previous'] = previous;
+    // ignore: unnecessary_null_comparison
     if (results != null) {
       data['results'] = results.map((v) => v.toJson()).toList();
     }

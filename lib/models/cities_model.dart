@@ -1,13 +1,13 @@
 class Cities {
-  Cities({this.id, this.name});
+  Cities({required this.id, required this.name});
 
   Cities.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
 
-  int id;
-  String name;
+  late int id;
+  late String name;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

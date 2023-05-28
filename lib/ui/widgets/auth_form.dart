@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -30,10 +32,10 @@ class _AuthFormState extends State<AuthForm> {
   var textColor = Helpers.hintColor;
 
   Future<void> _trySubmit() async {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
     if (isValid) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       setState(() => loading = true);
       _user.userType = widget.userType;
       print(_user.name);
@@ -87,7 +89,7 @@ class _AuthFormState extends State<AuthForm> {
                   keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   validator: (value) {
-                    if (value.isEmpty || value.length < 2) {
+                    if (value!.isEmpty || value.length < 2) {
                       return 'Поле должно быть от 2 и'
                           ' выше символов длиной и не содержать чисел';
                     }
@@ -108,7 +110,7 @@ class _AuthFormState extends State<AuthForm> {
                   keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   validator: (value) {
-                    if (value.isEmpty || value.length < 2) {
+                    if (value!.isEmpty || value.length < 2) {
                       return 'Поле должно быть от 2 и '
                           'выше символов длиной и не содержать чисел';
                     }
@@ -129,7 +131,7 @@ class _AuthFormState extends State<AuthForm> {
                   style: TextStyle(color: textColor),
                   keyboardType: TextInputType.phone,
                   textInputAction: TextInputAction.next,
-                  validator: Helpers.validateMobile,
+                  // validator: Helpers.validateMobile(),
                   onChanged: (value) async {
                     print(value);
                     final regExp = RegExp(Helpers.pattern);
@@ -175,7 +177,7 @@ class _AuthFormState extends State<AuthForm> {
                   obscureText: true,
                   obscuringCharacter: '*',
                   textInputAction: TextInputAction.next,
-                  validator: Helpers.validatePassword,
+                  // validator: Helpers.validatePassword,
                   onSaved: (value) {
                     _user.password = value;
                   },
@@ -184,7 +186,7 @@ class _AuthFormState extends State<AuthForm> {
                 Visibility(
                   visible: loading,
                   child: StreamBuilder<Response>(
-                    stream: sl<LoginManager>().registerResponse$,
+                    stream: sl<LoginManager>().registerResponse,
                     builder: (
                       BuildContext context,
                       AsyncSnapshot<Response> snapshot,
@@ -200,11 +202,11 @@ class _AuthFormState extends State<AuthForm> {
                         case ConnectionState.waiting:
                           return const CircularProgressIndicator();
                         case ConnectionState.active:
-                          return _statusResult2(context, snapshot.data);
+                          return _statusResult2(context, snapshot.data as Response);
                         case ConnectionState.done:
                           return Text('${snapshot.data} (closed)');
                       }
-                      return null; // unreachable
+// unreachable
                     },
                   ),
                 ),

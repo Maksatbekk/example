@@ -1,23 +1,24 @@
-// ignore_for_file: unnecessary_getters_setters, lines_longer_than_80_chars
+
+// ignore_for_file: unnecessary_getters_setters
 
 import 'dart:io';
 
 class RegisterDriver {
   RegisterDriver({
-    String name,
-    String surName,
-    String carryingCapacity,
-    String vehicleType,
-    String cargoType,
-    File vehicle,
-    File driverLicense,
-    File idPassport,
+    String? name,
+    String? surName,
+    String? carryingCapacity,
+    String? vehicleType,
+    String? cargoType,
+    File? vehicle,
+    File? driverLicense,
+    idPassport,
   }) {
-    _carryingCapacity = carryingCapacity;
-    _vehicleType = vehicleType;
-    _cargoType = cargoType;
-    _vehiclePassport = vehicle;
-    _driverLicense = driverLicense;
+    _carryingCapacity = carryingCapacity!;
+    _vehicleType = vehicleType!;
+    _cargoType = cargoType!;
+    _vehiclePassport = vehicle!;
+    _driverLicense = driverLicense!;
     _idPassport = idPassport;
   }
 
@@ -30,14 +31,14 @@ class RegisterDriver {
     _idPassport = json['id_passport'];
   }
 
-  String name;
-  String surName;
-  String _carryingCapacity;
-  String _vehicleType;
-  String _cargoType;
-  File _vehiclePassport;
-  File _driverLicense;
-  File _idPassport;
+  late String name;
+  late String surName;
+  late String _carryingCapacity;
+  late String _vehicleType;
+  late String _cargoType;
+  late File _vehiclePassport;
+  late File _driverLicense;
+  late File _idPassport;
 
   String get carryingCapacity => _carryingCapacity;
 

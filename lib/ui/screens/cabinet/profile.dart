@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
 import 'package:onoy_kg/models/user.dart';
@@ -16,11 +18,11 @@ class _ProfileState extends State<Profile> {
   var loading = false;
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
     if (isValid) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       setState(() => loading = true);
 
       print(_user.name);
@@ -60,7 +62,7 @@ class _ProfileState extends State<Profile> {
                   case ConnectionState.waiting:
                     return const Text('');
                   case ConnectionState.active:
-                    return _info(context, snapshot.data);
+                    return _info(context, snapshot.data!);
                   case ConnectionState.done:
                     return Text('${snapshot.data} (closed)');
                 }
@@ -120,7 +122,7 @@ class _ProfileState extends State<Profile> {
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
               validator: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Введите ваше имя';
                 }
                 return null;
@@ -138,7 +140,7 @@ class _ProfileState extends State<Profile> {
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.done,
               validator: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Введите ваше фамилия';
                 }
                 return null;

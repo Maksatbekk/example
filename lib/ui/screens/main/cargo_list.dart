@@ -30,10 +30,11 @@ class CargoList extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             case ConnectionState.active:
-              return CardItem(snapshot.data);
+              return CardItem(snapshot.data!);
             case ConnectionState.done:
               return Text('${snapshot.data} (closed)');
           }
+          // ignore: dead_code
           return null; // unreachable
         },
       ),

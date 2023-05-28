@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:convert';
 
 import 'package:http/http.dart';
@@ -28,12 +30,8 @@ abstract class CargoService {
 }
 
 class CargoServiceImplementation implements CargoService {
-
-
   @override
   Future<Cargo> getCargo(Results query) async {
-    // final prefs = await _prefs;
-    //final token = await prefs.getString('token');
     var queryParameters = {
       'from_region': query.fromRegion,
       'from_city': query.toCity,
@@ -42,24 +40,21 @@ class CargoServiceImplementation implements CargoService {
       'price__range': '${query.priceFrom}, ${query.priceTo}',
       'weight__range': '${query.weightFrom}, ${query.weightTo}',
     };
-   // logger.d('Price ${query.priceFrom} -- ${query.priceTo}');
-   // logger.d('Weight ${query.weightFrom} -- ${query.weightTo}');
 
-    if((query.priceFrom == null  || query.priceTo == null
-    || query.priceFrom == ''  || query.priceTo == '')
-        && (query.weightFrom == null || query.weightTo == null
-        || query.weightFrom == '' || query.weightTo == '')) {
+    if ((query.priceFrom == null || query.priceTo == null ||
+            query.priceFrom == '' || query.priceTo == '') &&
+        (query.weightFrom == null || query.weightTo == null ||
+            query.weightFrom == '' || query.weightTo == '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
         'to_region': query.toRegion,
         'to_city': query.toCity,
-
       };
-    }else if((query.weightFrom == null || query.weightTo == null
-    || query.weightFrom == '' || query.weightTo == '')
-    &&(query.priceFrom != null && query.priceTo != null
-        ||query.priceFrom != '' && query.priceTo != '')){
+    } else if ((query.weightFrom == null || query.weightTo == null ||
+            query.weightFrom == '' || query.weightTo == '') &&
+        (query.priceFrom != null && query.priceTo != null ||
+            query.priceFrom != '' && query.priceTo != '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
@@ -67,10 +62,10 @@ class CargoServiceImplementation implements CargoService {
         'to_city': query.toCity,
         'price__range': '${query.priceFrom}, ${query.priceTo}',
       };
-    }else if((query.priceFrom == null || query.priceTo == null
-    || query.priceFrom == '' || query.priceTo == '')
-    &&((query.weightFrom != null || query.weightTo != null
-        || query.weightFrom != '' || query.weightTo != ''))){
+    } else if ((query.priceFrom == null || query.priceTo == null ||
+            query.priceFrom == '' || query.priceTo == '') &&
+        (query.weightFrom != null || query.weightTo != null ||
+            query.weightFrom != '' || query.weightTo != '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
@@ -84,13 +79,10 @@ class CargoServiceImplementation implements CargoService {
     final response = await get(_uri, headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      /*'Authorization': token,*/
     });
-
 
     if (response.statusCode == 200) {
       final jsonString = utf8.decode(response.bodyBytes);
-
       final json = jsonDecode(jsonString);
       final cargo = Cargo.fromJson(json);
 
@@ -111,24 +103,21 @@ class CargoServiceImplementation implements CargoService {
       'price__range': '${query.priceFrom}, ${query.priceTo}',
       'weight__range': '${query.weightFrom}, ${query.weightTo}',
     };
-    //logger.d('Price ${query.priceFrom} -- ${query.priceTo}');
-  //  logger.d('Weight ${query.weightFrom} -- ${query.weightTo}');
 
-    if((query.priceFrom == null  || query.priceTo == null
-        || query.priceFrom == ''  || query.priceTo == '')
-        && (query.weightFrom == null || query.weightTo == null
-            || query.weightFrom == '' || query.weightTo == '')) {
+    if ((query.priceFrom == null || query.priceTo == null ||
+            query.priceFrom == '' || query.priceTo == '') &&
+        (query.weightFrom == null || query.weightTo == null ||
+            query.weightFrom == '' || query.weightTo == '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
         'to_region': query.toRegion,
         'to_city': query.toCity,
-
       };
-    }else if((query.weightFrom == null || query.weightTo == null
-        || query.weightFrom == '' || query.weightTo == '')
-        &&(query.priceFrom != null && query.priceTo != null
-            ||query.priceFrom != '' && query.priceTo != '')){
+    } else if ((query.weightFrom == null || query.weightTo == null ||
+            query.weightFrom == '' || query.weightTo == '') &&
+        (query.priceFrom != null && query.priceTo != null ||
+            query.priceFrom != '' && query.priceTo != '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
@@ -136,10 +125,10 @@ class CargoServiceImplementation implements CargoService {
         'to_city': query.toCity,
         'price__range': '${query.priceFrom}, ${query.priceTo}',
       };
-    }else if((query.priceFrom == null || query.priceTo == null
-        || query.priceFrom == '' || query.priceTo == '')
-        &&((query.weightFrom != null || query.weightTo != null
-            || query.weightFrom != '' || query.weightTo != ''))){
+    } else if ((query.priceFrom == null || query.priceTo == null ||
+            query.priceFrom == '' || query.priceTo == '') &&
+        (query.weightFrom != null || query.weightTo != null ||
+            query.weightFrom != '' || query.weightTo != '')) {
       queryParameters = {
         'from_region': query.fromRegion,
         'from_city': query.toCity,
@@ -148,6 +137,7 @@ class CargoServiceImplementation implements CargoService {
         'weight__range': '${query.weightFrom}, ${query.weightTo}',
       };
     }
+
     final _uri = Uri.http(_authority, _pathTransportation, queryParameters);
     final response = await get(_uri, headers: {
       'Content-Type': 'application/json',
@@ -158,7 +148,6 @@ class CargoServiceImplementation implements CargoService {
 
     if (response.statusCode == 200) {
       final jsonString = utf8.decode(response.bodyBytes);
-
       final json = jsonDecode(jsonString);
       final cargo = Cargo.fromJson(json);
 
@@ -176,13 +165,12 @@ class CargoServiceImplementation implements CargoService {
     final _uri = Uri.http(_authority, _pathCargo);
     final body = json.encode(cargo);
     logger.d(body);
-    final response = await post(_uri,
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': token,
-        },
-        body: body);
+    final response = await post(_uri, headers: {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': token!,
+    }, body: body);
+
     print(response.statusCode);
     print(response.body);
     logger.d(response.body);
@@ -190,7 +178,7 @@ class CargoServiceImplementation implements CargoService {
     if (response.statusCode == 201) {
       return response;
     } else {
-      throw Exception('Failed to create cargo');
+     throw Exception('Failed to create cargo');
     }
   }
 
@@ -203,10 +191,8 @@ class CargoServiceImplementation implements CargoService {
       'Accept': 'application/json',
     });
 
-    //logger.d(response.body);
     if (response.statusCode == 200) {
       final jsonString = utf8.decode(response.bodyBytes);
-
       final json = jsonDecode(jsonString);
       final regions = Regions.fromJson(json);
 
@@ -225,27 +211,21 @@ class CargoServiceImplementation implements CargoService {
     final body = json.encode(transport);
     logger.d(body);
 
-    try{
-      final response = await post(_uri,
-          headers: {
-            'accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': token,
-          },
-          body: body);
-      print(response.statusCode);
-     /* print(response.body);
-      logger.d(response.body);*/
+    try {
+      final response = await post(
+        _uri,
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': token!,
+        },
+        body: body,
+      );
 
-      /*   if (response.statusCode == 201) {
+      print(response.statusCode);
       return response;
-    }else if(response.statusCode == 403){*/
-      return response;
-    }catch (e) {
+    } catch (e) {
       throw Exception('Failed to create cargo');
     }
-
-
-
   }
 }

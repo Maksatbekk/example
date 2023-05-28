@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:onoy_kg/models/results.dart';
@@ -10,7 +12,7 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dateFormat = DateFormat('yyyy-MM-DDThh:mm:ssZ');
+    final dateFormat = DateFormat('yyyy-MM-DDThh:mm:ss');
     final dateTime = dateFormat.parse(cargo.datePublished);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),

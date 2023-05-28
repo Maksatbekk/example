@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, lines_longer_than_80_chars, prefer_final_locals
+// ignore_for_file: unused_import, lines_longer_than_80_chars, prefer_final_locals, unnecessary_null_comparison
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +30,13 @@ class PhoneAuthView extends StatefulWidget {
 }
 
 class _PhoneAuthViewState extends State<PhoneAuthView> {
-  bool isPhoneNumberSubmitted;
-  bool isCodeVerified;
-  String verificationCode;
+  late bool isPhoneNumberSubmitted;
+  late bool isCodeVerified;
+  late String verificationCode;
   var logger = Logger();
-  TextEditingController _countryCodeController;
-  TextEditingController _phoneNumberController;
-  TextEditingController _codeNumberController;
+  late TextEditingController _countryCodeController;
+  late TextEditingController _phoneNumberController;
+  late TextEditingController _codeNumberController;
 
   @override
   void initState() {
@@ -150,7 +150,7 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
     final userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
 
-    print('user have singed with ${userCredential.user.uid}');
+    print('user have singed with ${userCredential.user!.uid}');
   }
 
   Future<void> _verficationFailed(FirebaseException exception) async {
@@ -164,15 +164,16 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
     });
   }
 
-  Future<void> _codeSent(String verficationId, int resendToken) async {
-    print('Code sent is called with $verficationId and token $resendToken');
-    setState(() {
-      isPhoneNumberSubmitted = true;
-      verificationCode = verficationId;
-    });
-    ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('OTP is sent to your mobile number ')));
-  }
+  Future<void> _codeSent(String verificationId, int? resendToken) async {
+  print('Code sent is called with $verificationId and token $resendToken');
+  setState(() {
+    isPhoneNumberSubmitted = true;
+    verificationCode = verificationId;
+  });
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(content: Text('OTP is sent to your mobile number')),
+  );
+}
 
   Future<void> _codeAutoRetrievalTimeout(String verificationId) async {
     print('Code auto retreival time out is called with verification id $verificationId');
@@ -198,8 +199,8 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
         MaterialPageRoute(
           builder: (context) => LoginPage(),
         ));*/
-     var token = await userCredential.user.getIdToken(true);
-     var tokenResult = await userCredential.user.getIdTokenResult(true);
+     var token = await userCredential.user!.getIdToken(true);
+     var tokenResult = await userCredential.user!.getIdTokenResult(true);
     print('Token value --------- $token');
     print('TokenResult value ----- $tokenResult');
 

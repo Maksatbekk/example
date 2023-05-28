@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/users_manager.dart';
 import 'package:onoy_kg/models/cargo.dart';
@@ -25,7 +27,7 @@ class MyList extends StatelessWidget {
                 child:  CircularProgressIndicator(),
               );
             case ConnectionState.active:
-              return CardItem(snapshot.data);
+              return CardItem(snapshot.data!);
             case ConnectionState.done:
               return Text('${snapshot.data} (closed)');
           }

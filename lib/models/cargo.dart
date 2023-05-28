@@ -1,7 +1,8 @@
 import 'package:onoy_kg/models/results.dart';
 
 class Cargo {
-  Cargo({this.count, this.next, this.previous, this.results});
+  // ignore: lines_longer_than_80_chars
+  Cargo({required this.count, required this.next, required this.previous, required this.results});
 
   Cargo.fromJson(Map<String, dynamic> json) {
     count = json['count'];
@@ -15,16 +16,17 @@ class Cargo {
     }
   }
 
-  int count;
-  int next;
-  int previous;
-  List<Results> results;
+  late int count;
+  late int next;
+  late int previous;
+  late List<Results> results;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['count'] = count;
     data['next'] = next;
     data['previous'] = previous;
+    // ignore: unnecessary_null_comparison
     if (results != null) {
       data['results'] = results.map((v) => v.toJson()).toList();
     }

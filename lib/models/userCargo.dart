@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 class UserCargo {
 
   UserCargo.fromJson(Map<String, dynamic> json) {
@@ -7,11 +9,11 @@ class UserCargo {
     userType = json['user_type'];
   }
 
-  UserCargo({this.name, this.surname, this.phoneNumber, this.userType});
-  String name;
-  String surname;
-  String phoneNumber;
-  String userType;
+  UserCargo({required this.name, required this.surname, required this.phoneNumber, required this.userType});
+  late String name;
+  late String surname;
+  late String phoneNumber;
+  late String userType;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

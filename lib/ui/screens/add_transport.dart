@@ -1,3 +1,5 @@
+// ignore_for_file: omit_local_variable_types, dead_code, unnecessary_null_comparison, lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
@@ -24,11 +26,11 @@ class AddTransport extends StatefulWidget {
 class _AddTransportState extends State<AddTransport> {
   final _formKey = GlobalKey<FormState>();
   final _cargo = Results();
-  RegionResults selectedFromRegion;
-  RegionResults selectedToRegion;
-  Cities selectedFromCity;
-  Cities selectedToCity;
-  UserModel user;
+  late RegionResults selectedFromRegion;
+  late RegionResults selectedToRegion;
+  late Cities selectedFromCity;
+  late Cities selectedToCity;
+  late UserModel user;
   List<Cities> citiesFrom = [];
   List<Cities> citiesTo = [];
   var regionColorFrom = Helpers.hintColor;
@@ -42,7 +44,7 @@ class _AddTransportState extends State<AddTransport> {
   var logger = Logger();
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
     if (_cargo.fromRegion == null) {
       setState(() {
@@ -86,7 +88,7 @@ class _AddTransportState extends State<AddTransport> {
         _cargo.toRegion != null &&
         _cargo.toCity != null &&
         _cargo.fromCity != null) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       setState(() => loading = true);
 
       print(_cargo.fromRegion);
@@ -123,7 +125,7 @@ class _AddTransportState extends State<AddTransport> {
 
   Future<void> callDatePickerFrom() async {
     final order = await getDate();
-    final month = Helpers.getMonth(order.month);
+    final month = Helpers.getMonth(order!.month);
     print(month);
 
     setState(() {
@@ -134,7 +136,7 @@ class _AddTransportState extends State<AddTransport> {
 
   Future<void> callDatePickerTo() async {
     final order = await getDate();
-    final month = Helpers.getMonth(order.month);
+    final month = Helpers.getMonth(order!.month);
     print(order);
 
     setState(() {
@@ -143,7 +145,7 @@ class _AddTransportState extends State<AddTransport> {
     });
   }
 
-  Future<DateTime> getDate() {
+  Future<DateTime?> getDate() {
     // Imagine that this function is
     // more complex and slow.
     return showDatePicker(
@@ -162,7 +164,7 @@ class _AddTransportState extends State<AddTransport> {
 
   @override
   Widget build(BuildContext context) {
-    final Map args = ModalRoute.of(context).settings.arguments;
+    final Object? args = ModalRoute.of(context)?.settings.arguments;
     _cargo.user = args['userData'];
     print('UserData ${args['userData']}');
 
@@ -211,7 +213,7 @@ class _AddTransportState extends State<AddTransport> {
                               child: CircularProgressIndicator(),
                             );
                           case ConnectionState.active:
-                            return _dropDownFromRegions(context, snapshot.data);
+                            return _dropDownFromRegions(context, snapshot.data!);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -237,7 +239,7 @@ class _AddTransportState extends State<AddTransport> {
                         // Not necessary for Option 1
                         value: selectedFromCity,
                         onChanged: (newValue) {
-                          logger.d(newValue.name);
+                          logger.d(newValue!.name);
                           logger.d(newValue.id);
                           _cargo.fromCity = newValue.id.toString();
                           setState(() {
@@ -315,7 +317,7 @@ class _AddTransportState extends State<AddTransport> {
                               child: CircularProgressIndicator(),
                             );
                           case ConnectionState.active:
-                            return _dropDownToRegions(context, snapshot.data);
+                            return _dropDownToRegions(context, snapshot.data!);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -341,7 +343,7 @@ class _AddTransportState extends State<AddTransport> {
                         // Not necessary for Option 1
                         value: selectedToCity,
                         onChanged: (newValue) {
-                          logger.d(newValue.name);
+                          logger.d(newValue!.name);
                           logger.d(newValue.id);
                           _cargo.toCity = newValue.id.toString();
                           setState(() {
@@ -398,7 +400,6 @@ class _AddTransportState extends State<AddTransport> {
                         height: 120,
                         child: TextFormField(
                           decoration: InputDecoration(
-                            // ignore: lines_longer_than_80_chars
                             hintText: 'Комментарий к транспортному средству ...',
                             hintStyle: Helpers.hintStyle,
                             border: const OutlineInputBorder(),
@@ -407,7 +408,7 @@ class _AddTransportState extends State<AddTransport> {
                           textInputAction: TextInputAction.newline,
                           maxLines: 5,
                           onSaved: (value) {
-                            _cargo.toPlaceComment = value;
+                            _cargo.toPlaceComment = value!;
                           },
                         )),
                     const SizedBox(height: 8),
@@ -427,7 +428,7 @@ class _AddTransportState extends State<AddTransport> {
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Введите вес груза, т';
                         }
                         return null;
@@ -464,7 +465,7 @@ class _AddTransportState extends State<AddTransport> {
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.done,
                         validator: (value) {
-                          if (value.isEmpty) {
+                          if (value!.isEmpty) {
                             return 'Введите цену, сом';
                           }
                           return null;
@@ -493,7 +494,7 @@ class _AddTransportState extends State<AddTransport> {
                               case ConnectionState.waiting:
                                 return const CircularProgressIndicator();
                               case ConnectionState.active:
-                                return _statusResult(context, snapshot.data);
+                                return _statusResult(context, snapshot.data!);
                               case ConnectionState.done:
                                 return Text('${snapshot.data} (closed)');
                             }
@@ -595,7 +596,7 @@ class _AddTransportState extends State<AddTransport> {
         hint: Text('Область', style: Helpers.hintStyle),
         value: selectedFromRegion,
         onChanged: (newValue) {
-          print(newValue.name);
+          print(newValue!.name);
           print(newValue.id);
           _cargo.fromRegion = newValue.id.toString();
           setState(() {
@@ -637,7 +638,7 @@ class _AddTransportState extends State<AddTransport> {
         hint: Text('Область', style: Helpers.hintStyle),
         value: selectedToRegion,
         onChanged: (newValue) {
-          print(newValue.name);
+          print(newValue!.name);
           print(newValue.id);
           _cargo.toRegion = newValue.id.toString();
           setState(() {

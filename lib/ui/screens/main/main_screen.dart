@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
   }
 
-  Future<String> _getToken() async {
+  Future<String?> _getToken() async {
 
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('jwt');
@@ -180,6 +180,7 @@ class _MainScreenState extends State<MainScreen> {
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
+                        // ignore: dead_code
                         return null;
                       }),
                 ],
@@ -196,6 +197,6 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return TransportWidget();
     }
-    return null;
+    return Container();
   }
 }
