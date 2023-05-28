@@ -22,15 +22,15 @@ class UserModel {
     this.checked,
     this.registered,
   });
-  String name;
-  String surname;
-  String password;
-  String userType;
-  String phoneNumber;
-  String uidToken;
-  int id;
-  bool checked;
-  bool registered;
+  String? name;
+  String? surname;
+  String? password;
+  String? userType;
+  String? phoneNumber;
+  String? uidToken;
+  int? id;
+  bool? checked;
+  bool? registered;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

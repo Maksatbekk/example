@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code, unused_import
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +47,7 @@ class CabinetScreen extends StatelessWidget {
                 case ConnectionState.waiting:
                   return const Text('');
                 case ConnectionState.active:
-                  return _statusResult(context, snapshot.data);
+                  return _statusResult(context, snapshot.data!);
                 case ConnectionState.done:
                   return Text('${snapshot.data} (closed)');
               }
@@ -171,3 +173,4 @@ class CabinetScreen extends StatelessWidget {
     }
   }
 }
+  

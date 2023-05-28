@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 
 class Helpers {
@@ -87,7 +89,7 @@ class Helpers {
     } else if (!regExp.hasMatch(value)) {
       return 'Неправильно введенный формат номера телефона';
     }
-    return null;
+    return value;
   }
 
   static String validatePassword(String value) {
@@ -101,7 +103,7 @@ class Helpers {
       return 'Пароль должен быть от 8 символов длиной, '
           'содержать \n одну латинскую букву и число';
     }
-    return null;
+    return value;
   }
 
   static String getMonth(int month) {

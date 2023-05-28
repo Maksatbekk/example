@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, avoid_redundant_argument_values, omit_local_variable_types, unnecessary_cast, lines_longer_than_80_chars
 
 import 'dart:async';
 
@@ -18,11 +18,11 @@ class _PhoneOtpState extends State<PhoneOtp> {
 
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _smsController = TextEditingController();
-  String _verificationId;
+  late String _verificationId;
   var logger = Logger();
 
   void showSnackbar(String message) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
+    _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -124,7 +124,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
         smsCode: _smsController.text,
       ))
           .then((value) async {
-        value.credential.token;
+        value.credential!.token;
 
         logger.d(value.credential);
         logger.d(value.user);
@@ -132,7 +132,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
         // admin.auth().getUser(decodedIdToken.sub).
 
         if (value.user != null) {
-          logger.d(value.credential.token);
+          logger.d(value.credential!.token);
           logger.d(value.user);
           //logger.d(value.credential);
 
@@ -165,7 +165,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
         final authresult = await _auth.signInWithCredential(credential);
 
         final user = authresult.user;
-        _getUserFromFirebase(user);
+        _getUserFromFirebase(user!);
         completer.complete('signedUp');
       },
       verificationFailed: (FirebaseAuthException e) {
@@ -174,7 +174,7 @@ class _PhoneOtpState extends State<PhoneOtp> {
             : 'Can Not Login Now. Please try again.';
         completer.complete(error);
       },
-      codeSent: (String verificationId, int resendToken) {
+      codeSent: (String verificationId, int? resendToken) {
         completer.complete('verified');
       },
       codeAutoRetrievalTimeout: (String verificationId) {
@@ -192,12 +192,12 @@ class _PhoneOtpState extends State<PhoneOtp> {
         (PhoneAuthCredential phoneAuthCredential) async {
       final result = await _auth.signInWithCredential(phoneAuthCredential);
 
-      logger.d(result.user.refreshToken);
-      logger.d(result.credential.token);
+      logger.d(result.user!.refreshToken);
+      logger.d(result.credential!.token);
       logger.d(result.additionalUserInfo);
       showSnackbar(
         'Phone number automatically verified and user signed in: '
-        '${_auth.currentUser.uid} ${phoneAuthCredential.verificationId}',
+        '${_auth.currentUser!.uid} ${phoneAuthCredential.verificationId}',
       );
     };
 
@@ -211,14 +211,14 @@ class _PhoneOtpState extends State<PhoneOtp> {
     //Callback for when the code is sent
     final PhoneCodeSent codeSent = (
       String verificationId, [
-      int forceResendingToken,
+      int? forceResendingToken,
     ]) async {
       showSnackbar('Please check your phone for the verification code.');
       //_verificationId = verificationId;
       setState(() {
         _verificationId = verificationId;
       });
-    };
+    } as PhoneCodeSent;
     final PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout = (
       String verificationId,
     ) {

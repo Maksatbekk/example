@@ -65,8 +65,9 @@ class LoginServiceImplementation implements LoginService {
       var message = 'An error occured, please check your credentials!';
       print(message);
       if (err.message != null) {
-        message = err.message;
+        message = err.message!;
       }
+      throw Exception(message);
     }
   }
 
@@ -108,7 +109,7 @@ class LoginServiceImplementation implements LoginService {
     final response = await get(_uri, headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token,
+      'Authorization': token??'',
     });
 
    // logger.d(response.body);
@@ -139,7 +140,7 @@ class LoginServiceImplementation implements LoginService {
     final response = await put(_uri,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token,
+          'Authorization': token??'',
         },
         body: body);
 

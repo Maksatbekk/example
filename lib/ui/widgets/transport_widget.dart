@@ -11,13 +11,13 @@ class _TransportWidgetState extends State<TransportWidget> {
 
   final List<String> _locations = ['A', 'B', 'C', 'D'];
 
-  String _selectedLocation;
+  late String _selectedLocation;
   var fromDate;
   var toDate;
 
   Future<void> callDatePickerFrom() async {
     final order = await getDate();
-    final month = Helpers.getMonth(order.month);
+    final month = Helpers.getMonth(order!.month);
     print(month);
 
     setState(() {
@@ -27,7 +27,7 @@ class _TransportWidgetState extends State<TransportWidget> {
 
   Future<void> callDatePickerTo() async {
     final order = await getDate();
-    final month = Helpers.getMonth(order.month);
+    final month = Helpers.getMonth(order!.month);
     print(month);
 
     setState(() {
@@ -35,7 +35,7 @@ class _TransportWidgetState extends State<TransportWidget> {
     });
   }
 
-  Future<DateTime> getDate() {
+  Future<DateTime?> getDate() {
     // Imagine that this function is
     // more complex and slow.
     return showDatePicker(
@@ -43,10 +43,10 @@ class _TransportWidgetState extends State<TransportWidget> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2018),
       lastDate: DateTime(2030),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light(),
-          child: child,
+          child: child!,
         );
       },
     );
@@ -155,9 +155,9 @@ class _TransportWidgetState extends State<TransportWidget> {
                   ),
                   // Not necessary for Option 1
                   value: _selectedLocation,
-                  onChanged: (String newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
-                      _selectedLocation = newValue;
+                      _selectedLocation = newValue!;
                     });
                   },
                   items: _locations.map((location) {
@@ -189,9 +189,9 @@ class _TransportWidgetState extends State<TransportWidget> {
                   ),
                   // Not necessary for Option 1
                   value: _selectedLocation,
-                  onChanged: (String newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
-                      _selectedLocation = newValue;
+                      _selectedLocation = newValue!;
                     });
                   },
                   items: _locations.map((location) {
@@ -257,9 +257,9 @@ class _TransportWidgetState extends State<TransportWidget> {
                   ),
                   // Not necessary for Option 1
                   value: _selectedLocation,
-                  onChanged: (String newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
-                      _selectedLocation = newValue;
+                      _selectedLocation = newValue!;
                     });
                   },
                   items: _locations.map((location) {
@@ -291,9 +291,9 @@ class _TransportWidgetState extends State<TransportWidget> {
                   ),
                   // Not necessary for Option 1
                   value: _selectedLocation,
-                  onChanged: (String newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
-                      _selectedLocation = newValue;
+                      _selectedLocation = newValue!;
                     });
                   },
                   items: _locations.map((location) {

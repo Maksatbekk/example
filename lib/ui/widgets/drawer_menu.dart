@@ -1,6 +1,7 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
 import 'package:onoy_kg/managers/token_manager.dart';
 import 'package:onoy_kg/models/user.dart';
@@ -86,12 +87,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.waiting:
             return const Text('');
           case ConnectionState.active:
-            print(snapshot.data.name);
-            return _nameValue(snapshot.data);
+            print(snapshot.data!.name);
+            return _nameValue(snapshot.data as UserModel);
           case ConnectionState.done:
             return Text('${snapshot.data} (closed)');
         }
-        return null; // unreachable
+// unreachable
       },
     );
   }
@@ -101,12 +102,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
     String surName;
     print(data.name);
     if (data.name != null) {
-      name = data.name.titleCase;
+      name = data.name!.titleCase;
     } else {
       name = '';
     }
     if (data.surname != null) {
-      surName = data.surname.titleCase;
+      surName = data.surname!.titleCase;
     } else {
       surName = '';
     }
@@ -131,10 +132,10 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.active:
             return Row(
               children: [
-                (snapshot.data.userType == 'driver')
+                (snapshot.data!.userType == 'driver')
                     ? const Icon(Icons.drive_eta_sharp, color: Colors.white)
                     : const Text(''),
-                (snapshot.data.userType == 'client')
+                (snapshot.data!.userType == 'client')
                     ? const Icon(Icons.shopping_cart_sharp, color: Colors.white)
                     : const Text('')
               ],
@@ -143,7 +144,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.done:
             return Text('${snapshot.data} (closed)');
         }
-        return null; // unreachable
+// unreachable
       },
     );
   }
@@ -163,15 +164,15 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.active:
             return Row(
               children: [
-                (snapshot.data.userType == 'driver')
+                (snapshot.data!.userType == 'driver')
                     ? Text('Водитель: ', style: Helpers.header2WhiteTextStyle)
                     : const Text(''),
-                (snapshot.data.userType == 'client')
+                (snapshot.data!.userType == 'client')
                     ? Text('Клиент: ', style: Helpers.header2WhiteTextStyle)
                     : const Text(''),
-                (snapshot.data.phoneNumber != null)
+                (snapshot.data!.phoneNumber != null)
                     ? Text(
-                        snapshot.data.phoneNumber,
+                        snapshot.data!.phoneNumber as String,
                         style: Helpers.header2WhiteTextStyle,
                       )
                     : const Text(''),
@@ -180,7 +181,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.done:
             return Text('${snapshot.data} (closed)');
         }
-        return null; // unreachable
+// unreachable
       },
     );
   }
@@ -198,7 +199,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.waiting:
             return const Text('');
           case ConnectionState.active:
-            final value = snapshot.data.phoneNumber;
+            final value = snapshot.data!.phoneNumber;
             print('CabinetMenu: $value');
 
             return ListTile(
@@ -215,7 +216,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           case ConnectionState.done:
             return Text('${snapshot.data} (closed)');
         }
-        return null; // unreachable
+// unreachable
       },
     );
   }

@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'cities_model.dart';
 
 class RegionResults extends Equatable {
-  RegionResults({this.id, this.name, this.cities});
+  RegionResults({required this.id, required this.name, required this.cities});
 
   RegionResults.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -18,9 +18,9 @@ class RegionResults extends Equatable {
     }
   }
 
-  int id;
-  String name;
-  List<Cities> cities;
+  late int id;
+  late String name;
+  late List<Cities> cities;
 
   @override
   List<Object> get props => [id, name];
@@ -29,6 +29,7 @@ class RegionResults extends Equatable {
     final data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
+    // ignore: unnecessary_null_comparison
     if (cities != null) {
       data['cities'] = cities.map((v) => v.toJson()).toList();
     }

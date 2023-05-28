@@ -3,7 +3,7 @@
 import 'package:equatable/equatable.dart';
 
 class CargoTypesResults extends Equatable {
-  CargoTypesResults({int id, String name}) {
+  CargoTypesResults({required int id, required String name}) {
     _id = id;
     _name = name;
   }
@@ -16,8 +16,8 @@ class CargoTypesResults extends Equatable {
   @override
   List<Object> get props => [id, name];
 
-  int _id;
-  String _name;
+  late int _id;
+  late String _name;
 
   int get id => _id;
 

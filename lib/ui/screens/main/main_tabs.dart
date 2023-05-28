@@ -28,15 +28,15 @@ class _MainTabsState extends State<MainTabs>
     with AutomaticKeepAliveClientMixin<MainTabs> {
   @override
   bool get wantKeepAlive => true;
-  TabController _controller;
+  late TabController _controller;
   final _formKey = GlobalKey<FormState>();
   final _cargoResult = Results();
   var regionColorFrom = Helpers.hintColor;
   var regionColorTo = Helpers.hintColor;
   var cityColorFrom = Helpers.hintColor;
   var cityColorTo = Helpers.hintColor;
-  RegionResults selectedFromRegion;
-  RegionResults selectedToRegion;
+  late RegionResults selectedFromRegion;
+  late RegionResults selectedToRegion;
 
   @override
   Widget build(BuildContext context) {

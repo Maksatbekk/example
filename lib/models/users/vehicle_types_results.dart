@@ -5,9 +5,9 @@ class VehicleTypesResult {
     name = json['name'];
   }
 
-  VehicleTypesResult({this.id, this.name});
-  int id;
-  String name;
+  VehicleTypesResult({required this.id, required this.name});
+  late int id;
+  late String name;
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};

@@ -1,13 +1,13 @@
 class Create {
-  Create({this.refresh, this.access});
+  Create({required this.refresh, required this.access});
 
   Create.fromJson(Map<String, dynamic> json) {
     refresh = json['refresh'];
     access = json['access'];
   }
 
-  String refresh;
-  String access;
+  late String refresh;
+  late String access;
 
 
   Map<String, dynamic> toJson() {

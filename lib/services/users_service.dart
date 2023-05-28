@@ -73,7 +73,7 @@ class UsersServiceImplementation implements UsersService {
     final headers = <String, String>{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token,
+      'Authorization': token??'',
     }; // ignore this headers if there is no authentication
 
     //create multipart request for POST or PATCH method
@@ -145,7 +145,7 @@ class UsersServiceImplementation implements UsersService {
     final response = await http.get(_uri, headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token,
+      'Authorization': token??'',
     });
      logger.d(response.body);
 

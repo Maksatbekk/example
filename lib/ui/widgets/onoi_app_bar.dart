@@ -32,7 +32,7 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
     super.initState();
   }
 
-  Future<String> _getToken() async {
+  Future<String?> _getToken() async {
     final _prefs = SharedPreferences.getInstance();
 
     final prefs = await _prefs;
@@ -124,11 +124,10 @@ class _OnoiAppbarState extends State<OnoiAppbar> {
               case ConnectionState.waiting:
                 return const Text('');
               case ConnectionState.active:
-                return _statusResult(context, snapshot.data);
+                return _statusResult(context, snapshot.data as UserModel);
               case ConnectionState.done:
                 return Text('${snapshot.data} (closed)');
             }
-            return null; // unreachable
           },
         ),
       ],

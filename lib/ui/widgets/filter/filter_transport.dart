@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, unused_local_variable
+// ignore_for_file: unused_import, unused_local_variable, dead_code, unnecessary_null_comparison, lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
 import 'package:onoy_kg/managers/cargo_manager.dart';
@@ -65,7 +65,7 @@ class _FilterTransportState extends State<FilterTransport> {
   }
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
     if (weightFrom() != weightTo()) {
@@ -115,7 +115,7 @@ class _FilterTransportState extends State<FilterTransport> {
     if (isValid && weightFrom() == weightTo() && priceFrom() == priceTo()
 
     ) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       //setState(() => loading = true);
 
       print(_cargoResult.fromRegion);
@@ -176,7 +176,7 @@ class _FilterTransportState extends State<FilterTransport> {
                             child: CircularProgressIndicator(),
                           );
                         case ConnectionState.active:
-                          return _dropDownFromRegions(context, snapshot.data);
+                          return _dropDownFromRegions(context, snapshot.data!);
                         case ConnectionState.done:
                           return Text('${snapshot.data} (closed)');
                       }
@@ -205,7 +205,7 @@ class _FilterTransportState extends State<FilterTransport> {
                               child: CircularProgressIndicator(),
                             );
                           case ConnectionState.active:
-                            return _dropDownFromCities(context, snapshot.data);
+                            return _dropDownFromCities(context, snapshot.data!);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -237,7 +237,7 @@ class _FilterTransportState extends State<FilterTransport> {
                             child: CircularProgressIndicator(),
                           );
                         case ConnectionState.active:
-                          return _dropDownToRegions(context, snapshot.data);
+                          return _dropDownToRegions(context, snapshot.data!);
                         case ConnectionState.done:
                           return Text('${snapshot.data} (closed)');
                       }
@@ -265,7 +265,7 @@ class _FilterTransportState extends State<FilterTransport> {
                               child: CircularProgressIndicator(),
                             );
                           case ConnectionState.active:
-                            return _dropDownToCities(context, snapshot.data);
+                            return _dropDownToCities(context, snapshot.data!);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -295,7 +295,7 @@ class _FilterTransportState extends State<FilterTransport> {
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
-                            _cargoResult.weightFrom = value;
+                            _cargoResult.weightFrom = value!;
                           },
                         ),
                       ),
@@ -316,7 +316,7 @@ class _FilterTransportState extends State<FilterTransport> {
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
-                            _cargoResult.weightTo = value;
+                            _cargoResult.weightTo = value!;
                           },
                         ),
                       ),
@@ -346,7 +346,7 @@ class _FilterTransportState extends State<FilterTransport> {
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
-                            _cargoResult.priceFrom = value;
+                            _cargoResult.priceFrom = value!;
                           },
                         ),
                       ),
@@ -368,7 +368,7 @@ class _FilterTransportState extends State<FilterTransport> {
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
                             logger.d(value);
-                            _cargoResult.priceTo = value;
+                            _cargoResult.priceTo = value!;
                           },
                         ),
                       ),
@@ -438,7 +438,7 @@ class _FilterTransportState extends State<FilterTransport> {
               // Not necessary for Option 1
               value: snapshot.data,
               onChanged: (newValue) {
-                print(newValue.name);
+                print(newValue!.name);
                 print(newValue.id);
                 _cargoResult.fromRegion = newValue.id.toString();
                 logger.d('DropDownREgion $newValue');
@@ -498,7 +498,7 @@ class _FilterTransportState extends State<FilterTransport> {
               // Not necessary for Option 1
               value: snapshot.data,
               onChanged: (newValue) {
-                print(newValue.name);
+                print(newValue!.name);
                 print(newValue.id);
                 _cargoResult.toRegion = newValue.id.toString();
                 logger.d('DropDownREgion $newValue');
@@ -568,7 +568,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   onChanged: (newValue) {
                     /*   print(newValue.name);
                     print(newValue.id);*/
-                    _cargoResult.fromCity = newValue.id.toString();
+                    _cargoResult.fromCity = newValue!.id.toString();
                     selectedFromCity = newValue;
                     // sl<CargoManager>().inCitySelected$.close();
                     sl<CargoManager>().inTCitySelect$.add(newValue);
@@ -586,7 +586,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   }).toList(),
                 );
               case ConnectionState.active:
-                logger.d('Data Value ${snapshot.data.name}');
+                logger.d('Data Value ${snapshot.data!.name}');
 
                 return DropdownButton<Cities>(
                   underline: Container(color: Colors.transparent),
@@ -598,7 +598,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   // Not necessary for Option 1
                   value: selectedFromCity,
                   onChanged: (newValue) {
-                    print(newValue.name);
+                    print(newValue!.name);
                     print(newValue.id);
                     _cargoResult.fromCity = newValue.id.toString();
                     selectedFromCity = newValue;
@@ -660,7 +660,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   // Not necessary for Option 1
                   value: snapshot.data,
                   onChanged: (newValue) {
-                    _cargoResult.toCity = newValue.id.toString();
+                    _cargoResult.toCity = newValue!.id.toString();
                     selectedToCity = newValue;
                     // sl<CargoManager>().inCitySelected$.close();
                     sl<CargoManager>().inTCityToSelect$.add(newValue);
@@ -678,7 +678,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   }).toList(),
                 );
               case ConnectionState.active:
-                logger.d('Data Value ${snapshot.data.name}');
+                logger.d('Data Value ${snapshot.data?.name}');
 
                 return DropdownButton<Cities>(
                   underline: Container(color: Colors.transparent),
@@ -690,7 +690,7 @@ class _FilterTransportState extends State<FilterTransport> {
                   // Not necessary for Option 1
                   value: selectedToCity,
                   onChanged: (newValue) {
-                    print(newValue.name);
+                    print(newValue!.name);
                     print(newValue.id);
                     _cargoResult.fromCity = newValue.id.toString();
                     selectedToCity = newValue;

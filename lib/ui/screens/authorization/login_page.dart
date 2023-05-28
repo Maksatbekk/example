@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:onoy_kg/managers/login_manager.dart';
@@ -24,10 +26,10 @@ class _LoginPageState extends State<LoginPage> {
   var loading = false;
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
     if (isValid) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       setState(() => loading = true);
       sl<LoginManager>().inRequest.add(_user);
     }
@@ -111,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                                 case ConnectionState.waiting:
                                   return const CircularProgressIndicator();
                                 case ConnectionState.active:
-                                  return _statusResult(context, snapshot.data);
+                                  return _statusResult(context, snapshot.data!);
                                 case ConnectionState.done:
                                   return Text('${snapshot.data} (closed)');
                               }

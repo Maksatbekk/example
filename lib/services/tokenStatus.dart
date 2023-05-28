@@ -32,13 +32,13 @@ class TokenStatusServiceImplementation implements TokenStatusService {
   Future<String> setToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('jwt', token);
-    return null;
+    return token;
   }
 
   @override
-  Future<String> getToken() async{
-    final prefs = await SharedPreferences.getInstance();
-    final token =  prefs.getString('jwt');
-    return token;
-  }
+  Future<String> getToken() async {
+  final prefs = await SharedPreferences.getInstance();
+  final token = prefs.getString('jwt') ?? ''; 
+  return token;
+}
 }

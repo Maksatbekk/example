@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, dead_code, unnecessary_null_comparison, lines_longer_than_80_chars
 
 import 'dart:io';
 
@@ -30,10 +30,10 @@ class RegisterDriverScreen extends StatefulWidget {
 
 class _RegisterDriverState extends State<RegisterDriverScreen> {
   final _formKey = GlobalKey<FormState>();
-  File sampleImage;
-  File _techPassport;
-  File _license;
-  File _passport;
+  late File sampleImage;
+  late File _techPassport;
+  late File _license;
+  late File _passport;
   final picker = ImagePicker();
   final _driver = RegisterDriver();
   var loading = false;
@@ -41,7 +41,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   var _techPassportColor = Colors.black;
   var _licenseColor = Colors.black;
   var _passportColor = Colors.black;
-  CargoTypesResults cargoTypesResults;
+  late CargoTypesResults cargoTypesResults;
 
   Future getTechPassport() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -88,7 +88,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
   }
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
     if (_driver.cargoType == null) {
@@ -118,7 +118,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
         _driver.vehicle != null &&
         _driver.driverLicense != null &&
         _driver.idPassport != null) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       setState(() => loading = true);
 
       print(_driver.cargoType);
@@ -169,13 +169,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Please enter name';
                         }
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.name = value;
+                        _driver.name = value!;
                       },
                     ),
                     const SizedBox(height: 8.0),
@@ -188,13 +188,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Please enter surname';
                         }
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.surName = value;
+                        _driver.surName = value!;
                       },
                     ),
                     const SizedBox(height: 20.0),
@@ -280,7 +280,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                               child: CircularProgressIndicator(),
                             );
                           case ConnectionState.active:
-                            return _dropDownFromRegions(context, snapshot.data);
+                            return _dropDownFromRegions(context, snapshot.data!);
                           case ConnectionState.done:
                             return Text('${snapshot.data} (closed)');
                         }
@@ -296,7 +296,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                           border: Border.all(
                             color: Colors.grey,
                           )),
-                      child: DropdownButton(
+                      child: DropdownButton<String>(
                         underline: Container(color: Colors.transparent),
                         isExpanded: true,
                         hint: Text('Тип транспорта', style: Helpers.hintStyle),
@@ -304,10 +304,20 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         value: _driver.vehicleType,
                         onChanged: (newValue) {
                           setState(() {
-                            _driver.vehicleType = newValue;
+                            _driver.vehicleType = newValue!;
                           });
                         },
-                        items: const [null],
+                        items: const [
+                          DropdownMenuItem<String>(
+                            value: 'option1',
+                            child: Text('Option 1'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'option2',
+                            child: Text('Option 2'),
+                          ),
+                          // Add more DropdownMenuItem<String> items as needed
+                        ],
                          /* items: _driver.vehicleType.map((location) {
                           return DropdownMenuItem(
                             value: location,
@@ -329,7 +339,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                         inactiveFgColor: const Color(0xff909090),
                         labels: const ['Грузовик', 'Полурицеп', 'Сцепка'],
                         onToggle: (index) {
-                          final value = index + 1;
+                          final value = index! + 1;
                           _driver.vehicleType = value.toString();
                         }),
                     const SizedBox(height: 8.0),
@@ -342,13 +352,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Please enter name';
                         }
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.carryingCapacity = value;
+                        _driver.carryingCapacity = value!;
                       },
                     ),
                     const SizedBox(height: 8.0),
@@ -361,13 +371,13 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Введите объем багажа, м³';
                         }
                         return null;
                       },
                       onSaved: (value) {
-                        _driver.carryingCapacity = value;
+                        _driver.carryingCapacity = value!;
                       },
                     ),
                     const SizedBox(height: 30.0),
@@ -452,7 +462,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                               keyboardType: TextInputType.phone,
                               textInputAction: TextInputAction.done,
                               validator: (value) {
-                                if (value.isEmpty) {
+                                if (value!.isEmpty) {
                                   return 'Please enter number';
                                 }
                                 return null;
@@ -509,7 +519,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
                                 child: CircularProgressIndicator(),
                               );
                             case ConnectionState.active:
-                              return _statusResult(context, snapshot.data);
+                              return _statusResult(context, snapshot.data!);
                             case ConnectionState.done:
                               return Text('${snapshot.data} (closed)');
                           }
@@ -571,7 +581,7 @@ class _RegisterDriverState extends State<RegisterDriverScreen> {
         // Not necessary for Option 1
         value: cargoTypesResults,
         onChanged: (newValue) {
-          print(newValue.name);
+          print(newValue!.name);
           print(newValue.id);
           _driver.cargoType = newValue.id.toString();
           setState(() {

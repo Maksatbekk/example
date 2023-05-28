@@ -23,7 +23,7 @@ class _OTPScreenState extends State<OTPScreen> {
   // ignore: lines_longer_than_80_chars
   final GlobalKey<ScaffoldMessengerState> _scaffoldkey =
       GlobalKey<ScaffoldMessengerState>();
-  String _verificationCode;
+  late String _verificationCode;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Pinput PinPut = const Pinput();
   final TextEditingController _pinPutController = TextEditingController();
@@ -109,7 +109,7 @@ class _OTPScreenState extends State<OTPScreen> {
         verificationFailed: (FirebaseAuthException e) {
           logger.d('verificationFailed ${e.message}');
         },
-        codeSent: (String verficationID, int resendToken) {
+        codeSent: (String verficationID, int? resendToken) {
           logger.d('CodeSent $verficationID');
           logger.d('CodeSent $resendToken');
           setState(() {

@@ -1,13 +1,13 @@
 class Driver {
   Driver({
-    this.name,
-    this.surname,
-    this.region,
-    this.city,
-    this.type,
-    this.volume,
-    this.comment,
-    this.numbers,
+    required this.name,
+    required this.surname,
+    required this.region,
+    required this.city,
+    required this.type,
+    required this.volume,
+    required this.comment,
+    required this.numbers,
   });
 
   String name;
@@ -15,7 +15,7 @@ class Driver {
   String region;
   String city;
   String type;
-  String capacity;
+  late String capacity;
   String volume;
   String comment;
   List<String> numbers;

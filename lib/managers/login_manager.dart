@@ -69,7 +69,7 @@ class LoginManager {
 
   Stream<Response> get statusResponse$ => _statusResponseSubject.stream;
   // ignore: lines_longer_than_80_chars
-  Stream<Response> get registerResponse$ => _registerResponseSubject.stream;
+  Stream<Response> get registerResponse => _registerResponseSubject.stream;
 
   // ignore: lines_longer_than_80_chars
   Stream<Response> get statusVerifyResponse$ => _statusResponseFirebaseSubject.stream;
